@@ -1,0 +1,15 @@
+#content{
+    width: 550px;
+}
+.wid-id-1{
+    width: 300px;
+    float: left;
+}
+.wid-id-2{
+    width: 300px;
+    float: right;
+}
+.right input[type="text"], .left input[type="text"]{
+    width:240px;
+          
+
