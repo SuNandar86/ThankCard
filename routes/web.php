@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/login',"UserController@login"); 
 Route::post('/login',"UserController@login"); 
+Route::group(['middleware' => ['checkuser']], function () {
+   Route::get('home', 'HomeController@index');
+   Route::get('logout','UserController@logout');
+});

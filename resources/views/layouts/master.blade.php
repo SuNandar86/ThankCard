@@ -21,9 +21,9 @@
         <!-- End Styles -->
     </head>
     <body class="smart-style-2 desktop-detected menu-on-top">
-        <header id="header">
-            <div id="logo-group">
-                <span id="logo"> <img src="{{ asset('img/weitseinlogo2.png') }}" alt="WeitSein" style="width:40%;"> </span>
+        <header id="header"> 
+             <div id="logo-group">
+                <span id="logo"> <img src="{{ asset('img/giftcard.png') }}" alt="WeitSein" style="width:40%;"> </span>
             </div>
             <div class="pull-right">
                 <div id="hide-menu" class="btn-header pull-right">
@@ -48,7 +48,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"
+                                <a href="{{url('logout')}}"
                                    class="padding-10 padding-top-5 padding-bottom-5"
                                    data-action="userLogout"><i
                                         class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
@@ -56,7 +56,7 @@
                         </ul>
                     </li>
                 </ul>
-                 <div id="logout" class="btn-header transparent pull-right">
+                <div id="logout" class="btn-header transparent pull-right">
                     <span>
                         <a href="#" title="Sign Out"
                            data-action="userLogout"
@@ -67,39 +67,34 @@
                 </div>
             </div>
         </header> 
-        <aside id="left-panel">
-            <nav>
+        <aside id="left-panel"> 
+            <nav style="margin:0 200px;width:100%;">
                 <ul>
                     <li class="active">
                         <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i><span
-                                class="menu-item-parent">Dashboard</span></a>
+                                class="menu-item-parent">Home</span></a>
+                    </li>                     
+                    <li class="active">
+                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-credit-card"></i><span
+                                class="menu-item-parent">Give Card</span></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-lg fa-fw fa-male"></i> <span class="menu-item-parent">Customers</span></a>
-                        <ul>
-                            <li>
-                                <a href="#">Customer</a>
-                            </li>
-                            <li>
-                                <a href="#">Member</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#">City</a>
-                            </li>
-                            <li>
-                                <a href="#">Township</a>
-                            </li>
-                             <li>
-                                <a href="#">Division</a>
-                            </li>
-                        </ul>
+                    <li class="active">
+                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-cogs"></i><span
+                                class="menu-item-parent">Setup</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-bar-chart"></i><span
+                                class="menu-item-parent">Reports</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-tasks"></i><span
+                                class="menu-item-parent">Activities</span></a>
                     </li>
                 </ul>
             </nav>
-        </aside>  
+
+        </aside>
+
         <div id="main" role="main">
             <div id="content" style="opacity: 1;">
                 @yield('content')
