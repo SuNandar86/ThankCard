@@ -16,5 +16,23 @@ class RoutePath
 	 	curl_close($ch);
 	  	return json_decode($result,true);
     }
+    public static function POST($url,$data){ 
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch,CURLOPT_POST, 1);		
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+		
+		// execute!
+		$result = curl_exec($ch);
+
+		// close the connection, release resources used
+		curl_close($ch);
+
+		return json_decode($result,true);
+		// do anything you want with your response
+		 
+	 }
   }
 ?>

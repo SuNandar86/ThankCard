@@ -11,8 +11,10 @@ class UserController extends Controller
 {
     public function login(Request $request){ 
     	if($request->method()=="POST"){  
-    		$data=RoutePath::GET(\Config::get('setting.api_path').'/Users'); 
-            return view('welcome',compact('data')); 
+    		$arr = array('user_name' => 'Su Su', 'password' => '1234');
+
+    		$data=RoutePath::POST(\Config::get('setting.api_path').'/Users/Check',$arr); 
+            print_r($data);
     	}else{
     		return view('login');
     	     
