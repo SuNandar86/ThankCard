@@ -1,5 +1,5 @@
 <?php
 
-	return  ['api_path' =>'https://localhost:44373/api' ]; 
+	return  ['api_path' =>'http://localhost:61343/api' ]; 
 
 ?>

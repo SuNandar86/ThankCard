@@ -17,3 +17,74 @@
  * - BODY
  * - CUSTOM STYLES
  */
+ .fa{
+ 	color:orange;
+ }
+/* Datatable Header Style */
+header.gird {
+ 	border-color: #383838!important;
+    background: #404040;
+    color: #fff;
+    height: 34px;
+    padding: 0; 
+}
+header.gird  h2 {
+    height: 100%;
+    width: auto;
+    display: inline-block;
+    font-size: 14px;
+    position: relative;
+    margin: 0;
+    line-height: 34px;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-left: 10px;
+    float: left;
+}
+header.gird>.widget-icon {
+	display: block;
+    width: 30px;
+    height: 32px;
+    position: relative;
+    float: left;
+    font-size: 111%;
+    line-height: 32px;
+    text-align: center;
+    margin-right: -10px;
+}
+/* Datatable Style */
+.dataTables_wrapper{
+	border:1px solid #CCC!important;
+	padding-top:20px;
+}
+.dataTables_wrapper  .paging_simple_numbers{
+	margin-right: 15px !important;
+}
+.dataTables_wrapper  .dataTables_info{
+   margin-left:15px !important;
+}
+.dataTables_wrapper .dataTables_filter{
+	padding-right: 15px;
+}
+.dataTables_wrapper  .bs-select{
+	padding-left: 15px;
+}
+.table-add{
+	float: right; 
+    margin-top: 7px;
+    margin-right: 15px; 
+}
+.table-add a{
+	color:orange;
+}
+/*Form Container Style*/
+.form-container{
+	border: 1px solid #CCC;
+    padding-top: 30px;
+    padding-right: 20px;
+}
+.form-container .btn {
+   background: orange;
+   color:#fff;
+   width: 70px;
+}

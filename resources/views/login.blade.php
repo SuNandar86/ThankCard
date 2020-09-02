@@ -18,13 +18,17 @@
 					{{ csrf_field() }} 
 					<span class="login100-form-title p-b-26">
 						Login
-					</span>
-					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
-					</span>
+					</span> 
+					 
+					@if($message)
+					<div class="alert alert-danger">
+  						<strong>Danger!</strong>{{$message}}
+					</div>
+					<br/>
+					@endif
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="user_name">
+						<input class="input100" type="text" name="user_name" required="required">
 						<span class="focus-input100" data-placeholder="User Name"></span>
 					</div>
 
@@ -33,7 +37,7 @@
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="password" >
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100" data-placeholder="Password" required="required"></span>
 					</div>
 
 					<div class="container-login100-form-btn">

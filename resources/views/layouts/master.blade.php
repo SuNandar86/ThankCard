@@ -18,6 +18,9 @@
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-production.min.css') }}">
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-skins.min.css') }}"> 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-rtl.min.css') }} ">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+         <link rel="stylesheet" type="text/css" media="screen"  href="{{ asset('css/custom.css') }}"> 
+
         <!-- End Styles -->
     </head>
     <body class="smart-style-2 desktop-detected menu-on-top">
@@ -68,33 +71,15 @@
             </div>
         </header> 
         <aside id="left-panel"> 
-            <nav style="margin:0 200px;width:100%;">
-                <ul>
-                    <li class="active">
-                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i><span
-                                class="menu-item-parent">Home</span></a>
-                    </li>                     
-                    <li class="active">
-                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-credit-card"></i><span
-                                class="menu-item-parent">Give Card</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-cogs"></i><span
-                                class="menu-item-parent">Setup</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-bar-chart"></i><span
-                                class="menu-item-parent">Reports</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa fa-tasks"></i><span
-                                class="menu-item-parent">Activities</span></a>
-                    </li>
+            <nav style="margin:0 200px;width:auto;">
+                <ul> 
+                    @php
+                        $menus=\Session::get('Authorities'); 
+                        App\Helper::PRINTMENU($menus);
+                    @endphp 
                 </ul>
-            </nav>
-
-        </aside>
-
+            </nav> 
+        </aside> 
         <div id="main" role="main">
             <div id="content" style="opacity: 1;">
                 @yield('content')
@@ -115,5 +100,18 @@
     <script src="{{ asset('js/plugin/bootstrap-slider/bootstrap-slider.min.js')}}"></script>
     <script src="{{ asset('js/plugin/msie-fix/jquery.mb.browser.min.js')}}"></script>
     <script src="{{ asset('js/plugin/fastclick/fastclick.min.js')}}"></script> 
-    <script src="{{ asset('js/app.min.js')}}"></script>   
+    <script src="{{ asset('js/app.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+  $('#dtBasicExample').DataTable({
+    "paging": true ,// false to disable pagination (or any other option)
+    "iDisplayLength": 5,
+    "searching": true
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+    </script>   
 </html>

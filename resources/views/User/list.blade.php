@@ -1,11 +1,20 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-<table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
-  
+@extends('layouts.master')
+@section('content')
+<div class="container" >
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Users</a></li>
+    </ol>
+	<header class="gird">
+        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+        <h2>User List</h2> 
+        <span class="table-add mb-3 mr-2">
+    		<a href="#" title="Dashboard">
+    			<i class="fa fa-lg fa fa-plus"></i> 
+            </a>
+    	</span>
+    </header>
+    <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Name</th>
@@ -62,13 +71,6 @@
                  
             </tr>
         </tfoot>
-    </table><!DOCTYPE html>
-    <script type="text/javascript"> 
- $(document).ready(function () {
-  $('#dtBasicExample').DataTable({
-    "paging": true ,// false to disable pagination (or any other option)
-    "iDisplayLength": 5
-  });
-  $('.dataTables_length').addClass('bs-select');
-});
-</script>
+    </table>
+ </div>
+@endsection
