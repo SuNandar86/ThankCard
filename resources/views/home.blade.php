@@ -66,7 +66,7 @@
 		            	<td>1</td>
 		            	<td>{{$thankcards[$i]['Status']}}</td>
 		            	<td>
-		            		<a href="{{url('thankcard/inbox')}}/{{$thankcards[$i]['Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		            		<a href="{{url('thankcard/inbox')}}/{{$thankcards[$i]['Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
 		            	</td>
 		            </tr>	
 		            @endfor

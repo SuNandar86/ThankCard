@@ -81,7 +81,7 @@
 	                    <td>{{ $employees[$i]['Dept_Name']}}</td>
 	                    <td>{{ $employees[$i]['Sub_Dept_Name']}}</td> 
 	                    <td>
-	                        <a href="{{url('thankcard/create')}}/{{ $employees[$i]['Emp_Name']}}/{{ $employees[$i]['Emp_Id']}}">Create</a>
+	                        <a href="{{url('thankcard/create')}}/{{ $employees[$i]['Emp_Name']}}/{{ $employees[$i]['Emp_Id']}}">Compose</a>
 	                    </td>
 	                </tr> 
 	            @endfor

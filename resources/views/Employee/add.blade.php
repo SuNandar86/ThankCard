@@ -78,7 +78,7 @@
 		    <div class="form-group">
 		      	<label class="control-label col-sm-3" for="user_id">User:</label>
 		      	<div class="col-sm-6"> 
-				    <select name="user_id"  class="form-control"  required="required">
+				    <select name="user_id"  class="form-control" >
 				    	@php
 			      			$user_id=Request::old('user_id')!=""?
                                              Request::old('user_id'):$employee->user_id;

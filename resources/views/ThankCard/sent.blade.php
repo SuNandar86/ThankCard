@@ -43,7 +43,7 @@
 					<div class="col-sm-2">
 						<label>&nbsp;</label>
 						<button type="submit" class="btn btn-default btn-search">Search</button>
-						<button type="submit" class="btn btn-default btn-search">Create</button>
+						<a  href="{{url('thankcard/employees')}}" class="btn btn-default btn-search" style="width: 80px;">Compose</a>
 					</div>
 				</div>	
     		</form>	
@@ -72,7 +72,7 @@
 		            	<td>1</td>
 		            	<td>{{$thankcards[$i]['Status']}}</td>
 		            	<td>
-		            		<a href="{{url('thankcard/sent/detail')}}/{{$thankcards[$i]['Thank_Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		            		<a href="{{url('thankcard/sent/detail')}}/{{$thankcards[$i]['Thank_Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
 		            	</td>
 		            </tr>	
 		            @endfor

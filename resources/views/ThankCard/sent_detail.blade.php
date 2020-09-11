@@ -7,12 +7,12 @@
         <li><a href="#">Detail</a></li>
 	</ol>
 	<div id="receive_content">
-		<div class="form-container">
+		<div class="form-container" style="border:none">
 			<div class="row"> 
 				<div class="col-sm-2 col-sm-offset-2 col-md-1" style="text-align: center;">
 					@if($thankcard[0]['From_Employee_Photo'])
 						<img src="{{URL::asset('upload/images')}}/{{$thankcard[0]['From_Employee_Id']}}/{{$thankcard[0]['From_Employee_Photo']}}"
-						class="rounded-circle"/>
+						class="rounded-circle" />
 						<br/>
 					@else
 						<img src="{{URL::asset('img/default.jpg')}}"
@@ -34,7 +34,7 @@
 		    	<div class="col-sm-2 col-sm-offset-2 col-md-1" style="text-align: center;">
 		    		@if($thankcard[0]['To_Employee_Photo'])
 						<img src="{{URL::asset('upload/images')}}/{{$thankcard[0]['To_Employee_Id']}}/{{$thankcard[0]['To_Employee_Photo']}}"
-						class="rounded-circle"/>
+						class="rounded-circle" />
 					@else
 						<img src="{{URL::asset('img/default.jpg')}}"
 						class="rounded-circle"/>

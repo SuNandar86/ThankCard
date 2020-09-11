@@ -82,9 +82,9 @@
         <thead>
             <tr>
                 <th>No</th>
+                 <th>Name</th> 
                 <th>Department</th>
                 <th>Sub Department </th> 
-                <th>Name</th> 
                 <th>From</th> 
                 <th>To</th> 
                 <th>Total Score</th>
@@ -93,32 +93,29 @@
         </thead>
         <tbody>
         	@for($i=0;$i<count($thankcards);$i++)
+        	  <tr>
 	            <td>{{$i+1}}</td>  
-	            <td>{{ $thankcards[$i]['Dept_Name']}}</td>
-	            <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td> 
 	            <td>{{ $thankcards[$i]['Emp_Name']}} </td>
+	            <td>{{ $thankcards[$i]['Dept_Name']}}</td>
+	            <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
 	            <td>{{ $thankcards[$i]['f_date']}}</td>
 	            <td>{{ $thankcards[$i]['t_date']}}</td>
 	            <td>{{ $thankcards[$i]['CountResult']}}</td> 
 	            <td>
-		            <a href="{{url('reports/employee/thankcard/receive/detail')}}
-										            			   /{{$thankcards[$i]['To_Emp_Id']}}}}
-										            			   /{{$thankcards[$i]['Dep_Id']}}}}
-										            			   /{{$thankcards[$i]['Sub_Dept_Id']}}}}
-										            			   /{{$thankcards[$i]['f_date']}}}}
-										            			   /{{$thankcards[$i]['t_date']}}}}" 
+		            <a href="{{url('reports/employee/thankcard/receive/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/{{$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
 										            			   title="View">
 		            	<i class="fa fa-eye" aria-hidden="true"></i> View
 		            </a>
 		       </td>
+		      </tr>
 	        @endfor
         </tbody>
         <tfoot>
             <tr>
                 <th>No</th>
+                <th>Name</th>
                 <th>Department</th>
-                <th>Sub Department </th>
-                <th>Name</th>  
+                <th>Sub Department </th> 
                 <th>From</th> 
                 <th>To</th> 
                 <th>Total Score</th> 

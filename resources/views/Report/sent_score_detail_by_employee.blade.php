@@ -5,7 +5,7 @@
         <li><a href="{{url('home')}}">Home</a></li>
         <li><a href="#">Report</a></li>
         <li><a href="#">Employee</a></li>
-        <li><a href="#">Receive Score Detail</a></li>
+        <li><a href="#">Sent Score Detail</a></li>
 	</ol>
 	<div id="card_content">
 		<table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">

@@ -19,36 +19,41 @@ class EmployeeController extends Controller
     public function add(Request $request){
         $request->flash();
     	if($request->method()=="POST"){ 
-            $data['Name'] =$request->employee_name;
-            $data['Sub_Dept_Id'] =$request->sub_department_id;
-            $data['Dept_Id'] =$request->department_id; 
-            $data['User_Id'] =$request->user_id;
-            $data['Address'] =$request->address; 
-            $data['email'] =$request->email;
-            $data['phone'] =$request->phone;
-            $data['photoname'] =$_FILES['photo']['name'];
-
-            $params['paramList']=json_encode($data);
-            $result=Helper::POST( \Config::get('setting.api_path').'/Employees/Employee',$params);
-  
-            if($result['status'][0]['statuscode']=="200"){
-                $employee_id=$result['employee'][0]['Id'] ;
-                $data['Id'] =$employee_id;
-                // upload image
-                if ($request->file('photo')) {
-                    $file_upload_url ='upload/images/'.$employee_id;
-                    $profile= $request->file('photo'); 
-                    $filename =  $profile->getClientOriginalName();
-                    $profile->move($file_upload_url, $filename);  
-                }             
-                \Session::flash('employee.message',"New Employee is successfully added!");
-                \Session::flash('status',"alert-success"); 
-
-            }elseif($result['status'][0]['statuscode']=='406'){
-                \Session::flash('employee.message','Employee named “'
-                                .$request->employee_name.'” is already taken!'); 
+            if(is_null($request->user_id)){
+                \Session::flash('employee.message','You neet to select user otherwise you can create a new user account!');
                 \Session::flash('status',"alert-warning"); 
-            } 
+            }else{
+
+                $data['Name'] =$request->employee_name;
+                $data['Sub_Dept_Id'] =$request->sub_department_id;
+                $data['Dept_Id'] =$request->department_id; 
+                $data['User_Id'] =$request->user_id;
+                $data['Address'] =$request->address; 
+                $data['email'] =$request->email;
+                $data['phone'] =$request->phone;
+                $data['photoname'] =$_FILES['photo']['name'];
+
+                $params['paramList']=json_encode($data);
+                $result=Helper::POST( \Config::get('setting.api_path').'/Employees/Employee',$params);
+      
+                if($result['status'][0]['statuscode']=="200"){
+                    $employee_id=$result['employee'][0]['Id'] ;
+                    $data['Id'] =$employee_id;
+                    // upload image
+                    if ($request->file('photo')) {
+                        $file_upload_url ='upload/images/'.$employee_id;
+                        $profile= $request->file('photo'); 
+                        $filename =  $profile->getClientOriginalName();
+                        $profile->move($file_upload_url, $filename);  
+                    }             
+                    return redirect('employees');
+
+                }elseif($result['status'][0]['statuscode']=='406'){
+                    \Session::flash('employee.message','Employee named “'
+                                    .$request->employee_name.'” is already taken!'); 
+                    \Session::flash('status',"alert-warning"); 
+                } 
+            }
         } 
         //get user,department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
@@ -119,8 +124,7 @@ class EmployeeController extends Controller
                 $filename =  $profile->getClientOriginalName();
                 $profile->move($file_upload_url, $filename);  
             } 
-            \Session::flash('employee.message','Employee data is successfully updated!'); 
-            \Session::flash('status','alert-success'); 
+            return redirect('employees');
         }elseif($result['status'][0]['statuscode']=="406"){ 
             \Session::flash('employee.message',"Employee named “".$request->employee_name ."” is already taken!");
             \Session::flash('status','alert-warning!');  

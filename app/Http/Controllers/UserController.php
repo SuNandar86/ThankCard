@@ -30,8 +30,7 @@ class UserController extends Controller
             $result=Helper::POST( \Config::get('setting.api_path').'/Users/User',$params);  
             
             if($result['status'][0]['statuscode']=="200"){
-                \Session::flash('user.message','New User is successfully added!'); 
-                \Session::flash('status','alert-success'); 
+               return redirect('users');
             }elseif($result['status'][0]['statuscode']=="406"){
                 \Session::flash('user.message',"User name ".$request->user_name." is already taken!"); 
                 \Session::flash('status','alert-warning');
@@ -83,8 +82,7 @@ class UserController extends Controller
         $result=Helper::PUT( \Config::get('setting.api_path').'/Users/UpdateUser',$params);
  
         if($result['status'][0]['statuscode']=="200"){
-            \Session::flash('user.message','User data is successfully updated!'); 
-            \Session::flash('status','alert-success');              
+            return redirect('users');              
         }elseif($result['status'][0]['statuscode']=="406"){ 
             \Session::flash('user.message','User named  “".$request->user_name."” is already taken!'); 
             \Session::flash('status','alert-warning');  

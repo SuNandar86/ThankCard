@@ -28,8 +28,7 @@ class DepartmentController extends Controller
             $result=Helper::POST( \Config::get('setting.api_path').'/Departments/Createdept',$params);
 
             if($result['status'][0]['statuscode']=="200"){
-                \Session::flash('dept.message','New department is successfully added!'); 
-                \Session::flash('status', 'alert-success'); 
+                return redirect('departments');
             }elseif($result['status'][0]['statuscode']=="406"){
                 \Session::flash('dept.message',"Department named “".$request->name ."” is already taken!");
                 \Session::flash('status', 'alert-warning');  
@@ -63,8 +62,7 @@ class DepartmentController extends Controller
     
         $message="";
         if($result['status'][0]['statuscode']=="200"){
-            \Session::flash('dept.message','Department data is successfully updated!'); 
-            \Session::flash('status', 'alert-success');
+            return redirect('departments');
         }elseif($result['status'][0]['statuscode']=="304"){
             \Session::flash('dept.message',"Department named “".$request->name."” is already taken"); 
             \Session::flash('status', 'alert-warning'); 
@@ -111,9 +109,7 @@ class DepartmentController extends Controller
             $result=Helper::POST( \Config::get('setting.api_path').'/SubDepartments/SubDepartment',$params);
 
             if($result['status'][0]['statuscode']=="200"){
-                \Session::flash('subdept.message',"New Sub Department is successfully added!");
-                \Session::flash('status',"alert-success");
-                
+                return redirect('subdepartments');                
             }elseif($result['status'][0]['statuscode']=="406"){
                 \Session::flash('subdept.message',"Sub Department named “".$request->name ."” is already taken!");
                 \Session::flash('status',"alert-warning"); 
@@ -124,7 +120,7 @@ class DepartmentController extends Controller
         $result=Helper::GET( \Config::get('setting.api_path').'/Departments/GetDepart',$params);
         $departments =$result['department'][0]; 
 
-        $subdepartment = $this->GetSubDeptartment($request,"");
+        $subdepartment = new Department;
         $action ="Add";
         return view('subdepartment.add',compact('subdepartment','departments','action'));
         
@@ -161,8 +157,7 @@ class DepartmentController extends Controller
         $result=Helper::PUT( \Config::get('setting.api_path').'/SubDepartments/UpdateSubDept',$params);
 
         if($result['status'][0]['statuscode']=="200"){
-            \Session::flash('subdept.message',"Sub Department is successfully updated!");
-            \Session::flash('status',"alert-success"); 
+            return redirect('subdepartments');
       
         }elseif($result['status'][0]['statuscode']=="406"){ 
             \Session::flash('subdept.message',"Department named “".$request->name ."” is already taken!");

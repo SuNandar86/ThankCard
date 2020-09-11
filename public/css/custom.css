@@ -105,8 +105,9 @@ header.gird>.widget-icon {
 }
 /* ThankCard */
 #receive_content img.rounded-circle {
-    border-radius: 50%;
-    width: 100%; 
+    border-radius: 50%; 
+    width: 100px;
+    height: 100px;
 }
 #receive_content div.message{
     position: relative;
@@ -198,3 +199,4 @@ header.gird>.widget-icon {
 .btn-download .fa{
   color:#fff;
 }
+ 

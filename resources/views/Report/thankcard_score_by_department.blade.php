@@ -41,11 +41,7 @@
 			        <select name="sub_department_id"  class="form-control" id="sub_department_id">
 			        	<option value="%">Select Sub Department</option>
 			        </select>
-				</div>
-				<div class="col-sm-1">
-					<label class="control-label" for="sub_department_id">Limit:</label> 
-			        <input type="number" name="limit" class="form-control" />
-				</div>
+				</div> 
 				<div class="col-sm-1">
 					<label class="control-label" for="sub_department_id">Order By:</label> 
 			        <select name="order" class="form-control">

@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>ThankCard</title>
-
+        <!--Favicon -->
+        <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}" type="image/x-icon"/>
         <!-- Fonts -->
          <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
@@ -27,7 +28,7 @@
     <body class="smart-style-2 desktop-detected menu-on-top">
         <header id="header"> 
              <div id="logo-group">
-                <span id="logo"> <img src="{{ asset('img/giftcard.png') }}" alt="WeitSein" style="width:40%;"> </span>
+                <span id="logo"> <img src="{{ asset('img/logo.png') }}" alt="WeitSein" style="width:40%;"> </span>
             </div>
             <div class="pull-right">
                 <div id="hide-menu" class="btn-header pull-right">
@@ -97,6 +98,8 @@
     <script src="{{ asset('js/app.min.js')}}"></script>  
     <script type="text/javascript">
         $(document).ready(function () { 
+            // set current date
+            setCurrentDate();
             $('#dtBasicExample').DataTable({
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
@@ -109,7 +112,13 @@
                 "iDisplayLength": 5,
                 "searching": false,
                 "bLengthChange": false
-              }); 
-           
+            }); 
+           function setCurrentDate(){ 
+                var today = new Date(); 
+                date =today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2)
+                       + '-' + ('0' + today.getDate()).slice(-2);
+                document.getElementById("from_date").value = date;
+                document.getElementById("to_date").value = date; 
+           }
     </script>   
-</html>
+</html> 

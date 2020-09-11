@@ -24,7 +24,7 @@
         			<label class="control-label col-sm-2" for="photo">&nbsp;</label>
 	                <div class="col-sm-2 col-md-1" style="text-align: center;"> 
 	                	@if($employee[0]['PhotoName'])
-	                    	<img src="{{ URL::asset('upload/images')}}/{{$employee[0]['Emp_Id']}}/{{$employee[0]['PhotoName']}}" class="rounded-circle" alt="Cinque Terre">
+	                    	<img src="{{ URL::asset('upload/images')}}/{{$employee[0]['Emp_Id']}}/{{$employee[0]['PhotoName']}}" class="rounded-circle" alt="Cinque Terre" > 
 	                    @else
 	                    	<img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/>  
 	                    @endif
@@ -46,7 +46,7 @@
             			<label class="control-label col-sm-2" for="photo">&nbsp;</label>
             			<div class="col-sm-2 col-md-1" style="text-align: center;"> 
             				@if({$user['employee_photo'])
-		                    	<img src="{{ URL::asset('upload/images')}}/{{$user['employee_id']}}/{{$user['employee_photo']}}" class="rounded-circle" alt="Cinque Terre"> 
+		                    	<img src="{{ URL::asset('upload/images')}}/{{$user['employee_id']}}/{{$user['employee_photo']}}" class="rounded-circle" alt="Cinque Terre"  > 
 		                    @else
 		                    	<img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/> 
 		                    @endif

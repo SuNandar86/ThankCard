@@ -4,21 +4,11 @@
 	<ol class="breadcrumb">
         <li><a href="{{url('home')}}">Home</a></li>
         <li><a href="#">Report</a></li>
-        <li><a href="#">Sent Score By Employee</a></li>
+        <li><a href="#">Department Relation</a></li>
 	</ol>
 	<div id="card_content">
-		<form class="form-horizontal" action="{{url('reports/employee/thankcard/sent/score')}}" method="post">
+		<form class="form-horizontal" action="{{url('reports/thankcard/department/relation')}}" method="post">
 			{{ csrf_field() }}
-			<div class="form-group">
-				<div class="col-sm-offset-10 col-sm-2">
-					<button type="submit" class="btn btn-default btn-search" id="">
-					  <i class="fa fa-eye" aria-hidden="true"></i> View
-				    </button> 
-					<button type="submit" class="btn btn-default btn-search" id="">
-						<i class="fa fa-print" aria-hidden="true"></i> Print
-					</button>
-				</div>
-			</div>
 			<div class="form-group"> 
 				<div class="col-sm-2">
 					<label for="email">From:</label>
@@ -31,7 +21,7 @@
 					value="{{Request::old('to_date')}}" >
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label" for="department_id">Department:</label>
+					<label class="control-label" for="user_id">Department:</label>
 			      	<select name="department_id"  class="form-control"  id="department_id">	
 		      			@php
 				        	$department_id=Request::old('department_id');
@@ -47,79 +37,61 @@
 				    </select>
 				</div>
 				<div class="col-sm-3">
-					<label class="control-label">Sub Department:</label> 
+					<label class="control-label" for="sub_department_id">Sub Department:</label> 
 			        <select name="sub_department_id"  class="form-control" id="sub_department_id">
 			        	<option value="%">Select Sub Department</option>
 			        </select>
 				</div> 
 				<div class="col-sm-1">
-					<label class="control-label" >Order By:</label> 
+					<label class="control-label" for="sub_department_id">Order By:</label> 
 			        <select name="order" class="form-control">
 			        	<option value="asc">ASC</option>
 			        	<option value="desc">DESC</option>
 			        </select>
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label">Employee:</label>
-					<select name="employee_id"  class="form-control" >
-			        	<option value="%">All</option>
-			         	@php
-			        	    $employee=Request::old('employee_id');
-		                @endphp
-			        	@for($i=0;$i<count($employees);$i++)
-				        	@if($employees[$i]['Emp_Id']==$employee)
-				        		<option value="{{$employees[$i]['Emp_Id']}}" selected="selected">{{$employees[$i]['Emp_Name']}}</option>
-				        	@else
-				        		<option value="{{$employees[$i]['Emp_Id']}}">{{$employees[$i]['Emp_Name']}}</option>
-				        	@endif
-			        	@endfor 
-					</select>
-				</div> 
-			</div> 
+					<label>&nbsp;</label>
+						<button type="submit" class="btn btn-default btn-search" id="">
+						  <i class="fa fa-eye" aria-hidden="true"></i> View
+					    </button> 
+						<button type="submit" class="btn btn-default btn-search" id="">
+							<i class="fa fa-print" aria-hidden="true"></i> Print
+						</button>
+				</div>
+			</div>
 
 		</form>
 		 <table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Sub Department </th>  
+                <th>From Department</th>
+                <th>To Department </th> 
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th>
-                <th>Action</th>  
+                <th>Total Score</th> 
             </tr>
         </thead>
         <tbody>
-        	@for($i=0;$i<count($thankcards);$i++)
-        	<tr>
-	            <td>{{$i+1}}</td>  
-	            <td>{{ $thankcards[$i]['Emp_Name']}} </td>
-	            <td>{{ $thankcards[$i]['Dept_Name']}}</td>
-	            <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
-	            <td>{{ $thankcards[$i]['f_date']}}</td>
-	            <td>{{ $thankcards[$i]['t_date']}}</td>
-	            <td>{{ $thankcards[$i]['CountResult']}}</td> 
-	            <td>
-		             <a href="{{url('reports/employee/thankcard/sent/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
-										            			   title="View">
-		            	<i class="fa fa-eye" aria-hidden="true"></i> View
-		            </a>
-		       </td>
-		     </tr>
-	        @endfor
+            @for($i=0;$i<count($thankcards);$i++)
+                <tr>
+                    <td>{{$i+1}}</td>  
+                    <td>{{ $thankcards[$i]['F_Dept_Name']}}</td>
+                    <td>{{ $thankcards[$i]['T_Dept_Name']}}</td> 
+                    <td>{{ $thankcards[$i]['f_date']}}</td>
+                    <td>{{ $thankcards[$i]['t_date']}}</td>
+                    <td>{{ $thankcards[$i]['CountResult']}}</td> 
+                </tr> 
+            @endfor
         </tbody>
         <tfoot>
             <tr>
                 <th>No</th>
-                <th>Name</th> 
-                <th>Department</th>
-                <th>Sub Department </th> 
+                <th>From Department</th>
+                <th>To Department </th> 
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th> 
-                <th>Action</th>               
+                <th>Total Score</th>                
             </tr>
         </tfoot>
     </table>

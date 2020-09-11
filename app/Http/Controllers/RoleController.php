@@ -27,8 +27,7 @@ class RoleController extends Controller
             $result=Helper::POST( \Config::get('setting.api_path').'/Users/Role',$params);
 
             if($result['status'][0]['statuscode']=="200"){
-                \Session::flash('role.message','New Role is successfully added!'); 
-                \Session::flash('status', 'alert-success');  
+                return redirect('roles'); 
             }elseif($result['status'][0]['statuscode']=="406"){
                 \Session::flash('role.message',"Role named “".$request->name."” is already taken!"); 
                 \Session::flash('status', 'alert-warning'); 
@@ -63,8 +62,7 @@ class RoleController extends Controller
         $result=Helper::POST( \Config::get('setting.api_path').'/Users/UpdateRole',$params);
     
         if($result['status'][0]['statuscode']=="200"){
-            \Session::flash('role.message','Role data is successfully updated!'); 
-            \Session::flash('status', 'alert-success');             
+            return redirect('roles');          
         }elseif($result['status'][0]['statuscode']=="406"){
             \Session::flash('role.message',"Role name “".$request->name."” is already taken!"); 
             \Session::flash('status', 'alert-warning');  
