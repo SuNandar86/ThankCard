@@ -2,22 +2,31 @@
 namespace App;
 class Helper
 {
-    public static function GET($url){ 
-	  	$ch = curl_init($url);
+ 
+    public static function  EmployeeID(){
+        $employee=\Session::get('UserEmployee'); 
+        return $employee['Emp_Id'];
+    }
+    public static function  EmployeeName(){
+        $employee=\Session::get('UserEmployee'); 
+        return $employee['Emp_Name'];
+    }
+    public static function EmployeePhoto(){
+        $employee=\Session::get('Emp_Photo'); 
+        return $employee['Emp_Photo']; 
+    }
+    public static function GET($url,$data){
+        $client = new \GuzzleHttp\Client(['verify' => false ]);
+        if(count($data)>0){ 
+            $response = $client->request('GET', $url, ['query' => $data]); 
+        }else{
+            $response = $client->request('GET', $url); 
+        } 
 
-	  	// Set options
-	  	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	  	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-	  	//Execute curl handle add results to data return array.
-	  	$result = curl_exec($ch); 
-
-	 	// Close cURL and return response.
-	 	curl_close($ch);
-	  	return json_decode($result,true);
+        $response = json_decode($response->getBody()->getContents(), true);
+        return $response;
     }
     public static function POST($url,$data){ 
-    	
 	 	$guzzleClient = new \GuzzleHttp\Client([
 		    'base_uri' => $url,
 		    'verify' =>false,
@@ -29,8 +38,22 @@ class Helper
 		$response = json_decode($response->getBody()->getContents(), true);
 		return $response;
 	 }
+     public static function PUT($url,$data){
+        $client = new \GuzzleHttp\Client(['verify' => false ]);
+        $response = $client->request('PUT', $url,['query' => $data ]); 
+
+        $response = json_decode($response->getBody()->getContents(), true);
+        return $response;
+     }
+     public static function DELETE($url,$data){
+        $client = new \GuzzleHttp\Client(['verify' => false ]);
+        $response = $client->request('DELETE', $url,['query' => $data ]); 
+
+        $response = json_decode($response->getBody()->getContents(), true);
+        return $response;
+     }
 	 public static function PRINTMENU($arr_menu){
-		$html ='';
+		$html ='';        
         for($i=0;$i<count($arr_menu);$i++){ 
             if($arr_menu[$i]['ParentID']==0){
                 $html .="<li>"; 

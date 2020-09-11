@@ -14,6 +14,14 @@
             </a>
     	</span>
     </header>
+    @if(Session::has('message')!="")
+    <div class="col-sm-offset-3 col-sm-6"> 
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ Session::get('message') }}
+        </div>
+    </div> 
+    @endif 
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -49,4 +57,5 @@
         </tfoot>
     </table>
  </div>
+
 @endsection

@@ -22,7 +22,7 @@
 					 
 					@if($message)
 					<div class="alert alert-danger">
-  						<strong>Danger!</strong>{{$message}}
+  						<strong>Hi!</strong>{{$message}}
 					</div>
 					<br/>
 					@endif

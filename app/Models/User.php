@@ -3,11 +3,10 @@
 namespace App\Models;
  
 class User {
-  public $user_name="";
+  public $id;
+  public $name="";
   public $password="";
-  public $role_id;
-  public $employee_id;
- 
+  public $role_id;  
 }
 
 ?>

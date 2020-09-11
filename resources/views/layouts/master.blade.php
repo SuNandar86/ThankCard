@@ -18,9 +18,10 @@
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-production.min.css') }}">
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-skins.min.css') }}"> 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-rtl.min.css') }} ">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-         <link rel="stylesheet" type="text/css" media="screen"  href="{{ asset('css/custom.css') }}"> 
-
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/smartadmin-rtl.min.css') }} ">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/dataTables.bootstrap4.min.css') }} "> 
+        <link rel="stylesheet" type="text/css" media="screen"  href="{{ asset('css/custom.css') }}"> 
+        <!-- <link rel="stylesheet" type="text/css" media="screen"  href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">  -->
         <!-- End Styles -->
     </head>
     <body class="smart-style-2 desktop-detected menu-on-top">
@@ -85,33 +86,30 @@
                 @yield('content')
             </div>
         </div>      
-    </body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </body>   
+    <script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}" ></script>
     <script src="{{ asset('js/app.config.js') }}"></script>
     <script src="{{ asset('js/plugin/jquery-touch/jquery.ui.touch-punch.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/notification/SmartNotification.min.js') }}"></script> 
-    <script src="{{ asset('js/smartwidgets/jarvis.widget.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/sparkline/jquery.sparkline.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/jquery-validate/jquery.validate.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/masked-input/jquery.maskedinput.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/select2/select2.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/bootstrap-slider/bootstrap-slider.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/msie-fix/jquery.mb.browser.min.js')}}"></script>
-    <script src="{{ asset('js/plugin/fastclick/fastclick.min.js')}}"></script> 
-    <script src="{{ asset('js/app.min.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script> 
+    <script src="{{ asset('js/jquery/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/jquery/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/plugin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script> -->
+    <script src="{{ asset('js/app.min.js')}}"></script>  
     <script type="text/javascript">
-        $(document).ready(function () {
-  $('#dtBasicExample').DataTable({
-    "paging": true ,// false to disable pagination (or any other option)
-    "iDisplayLength": 5,
-    "searching": true
-  });
-  $('.dataTables_length').addClass('bs-select');
-});
+        $(document).ready(function () { 
+            $('#dtBasicExample').DataTable({
+                "paging": true ,// false to disable pagination (or any other option)
+                "iDisplayLength": 5,
+                "searching": true
+            });
+            $('.dataTables_length').addClass('bs-select');
+            });
+            $('#dtThankCard').DataTable({
+                "paging": true ,// false to disable pagination (or any other option)
+                "iDisplayLength": 5,
+                "searching": false,
+                "bLengthChange": false
+              }); 
+           
     </script>   
 </html>
