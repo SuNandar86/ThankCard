@@ -81,11 +81,20 @@ Route::group(['middleware' => ['checkuser']], function () {
  	Route::get('reports/employee/thankcard/receive/score','ReportController@receiveScoreByEmployee');
  	Route::post('reports/employee/thankcard/receive/score','ReportController@receiveScoreByEmployee');
  	Route::get('reports/employee/thankcard/receive/detail/{f_emp_id}/{t_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}','ReportController@receiveScoreByEmployeeDetail'); 
+
  	Route::get('reports/employee/thankcard/sent/score','ReportController@sentScoreByEmployee');
  	Route::post('reports/employee/thankcard/sent/score','ReportController@sentScoreByEmployee');
- 	Route::get('reports/employee/thankcard/sent/detail/{f_emp_id}/{t_emp_id}/{dept_id}
- 		      /{subdep_id}/{f_date}/{t_date}','ReportController@sentScoreByEmployeeDetail'); 
+ 	Route::get('reports/employee/thankcard/sent/detail/{f_emp_id}/{t_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}',
+ 		'ReportController@sentScoreByEmployeeDetail'); 
+
     Route::get('reports/thankcard/department/relation','ReportController@departmentRelation');
     Route::post('reports/thankcard/department/relation','ReportController@departmentRelation');
 
+    //PDFReport
+    Route::post('pdfreports/department/thankcard/score','ReportController@scoreByDepartmentPDF');
+    Route::post('pdfreports/employee/thankcard/receive/score','ReportController@receiveScoreByEmployeePDF');
+    Route::post('pdfreports/employee/thankcard/receive/detail','ReportController@receiveScoreDetailByEmployeePDF');
+    Route::post('pdfreports/employee/thankcard/sent/score','ReportController@sentScoreByEmployeePDF');
+    Route::post('pdfreports/employee/thankcard/sent/detail','ReportController@sentScoreDetailByEmployeePDF');
+    Route::post('pdfreports/thankcard/department/relation','ReportController@departmentRelationPDF');
 });

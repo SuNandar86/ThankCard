@@ -7,7 +7,7 @@
         <li><a href="#">Department Relation</a></li>
 	</ol>
 	<div id="card_content">
-		<form class="form-horizontal" action="{{url('reports/thankcard/department/relation')}}" method="post">
+		<form class="form-horizontal" action="{{url('reports/thankcard/department/relation')}}" method="post" id="frmSearch">
 			{{ csrf_field() }}
 			<div class="form-group"> 
 				<div class="col-sm-2">
@@ -54,8 +54,8 @@
 						<button type="submit" class="btn btn-default btn-search" id="">
 						  <i class="fa fa-eye" aria-hidden="true"></i> View
 					    </button> 
-						<button type="submit" class="btn btn-default btn-search" id="">
-							<i class="fa fa-print" aria-hidden="true"></i> Print
+						<button type="submit" class="btn btn-default btn-search" id="btnPrint">
+							<i class="fa fa-download" aria-hidden="true"></i> Print
 						</button>
 				</div>
 			</div>
@@ -110,6 +110,19 @@ $(document).ready(function(){
 $('#department_id').change(function() { 
  	getSubDepartment($(this).val(),'');
  	$("#sub_department_id").val('');
+});
+$("#btnPrint").click(function() {  
+    var form = $("#frmSearch");
+    var url = "<?php echo url('pdfreports/thankcard/department/relation');?>";  
+    $.ajax({
+       type: "POST",
+       url: url,
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           
+       }
+    }); 
 });
 function getSubDepartment($id){ 
 	$("#sub_department_id").html('');

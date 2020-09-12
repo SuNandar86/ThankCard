@@ -7,15 +7,15 @@
         <li><a href="#">Sent Score By Employee</a></li>
 	</ol>
 	<div id="card_content">
-		<form class="form-horizontal" action="{{url('reports/employee/thankcard/sent/score')}}" method="post">
+		<form class="form-horizontal" action="{{url('reports/employee/thankcard/sent/score')}}" method="post" id="frmSearch">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<div class="col-sm-offset-10 col-sm-2">
 					<button type="submit" class="btn btn-default btn-search" id="">
 					  <i class="fa fa-eye" aria-hidden="true"></i> View
 				    </button> 
-					<button type="submit" class="btn btn-default btn-search" id="">
-						<i class="fa fa-print" aria-hidden="true"></i> Print
+					<button type="button" class="btn btn-default btn-search" id="btnPrint">
+						<i class="fa fa-download" aria-hidden="true"></i> Print
 					</button>
 				</div>
 			</div>
@@ -102,7 +102,7 @@
 	            <td>{{ $thankcards[$i]['t_date']}}</td>
 	            <td>{{ $thankcards[$i]['CountResult']}}</td> 
 	            <td>
-		             <a href="{{url('reports/employee/thankcard/sent/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
+		             <a href="{{url('reports/employee/thankcard/sent/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/{{$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
 										            			   title="View">
 		            	<i class="fa fa-eye" aria-hidden="true"></i> View
 		            </a>
@@ -138,6 +138,19 @@ $(document).ready(function(){
 $('#department_id').change(function() { 
  	getSubDepartment($(this).val(),'');
  	$("#sub_department_id").val('');
+});
+$("#btnPrint").click(function() {  
+    var form = $("#frmSearch");
+    var url = "<?php echo url('pdfreports/employee/thankcard/sent/score');?>";  
+    $.ajax({
+       type: "POST", 
+       url: url,
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           
+       }
+    }); 
 });
 function getSubDepartment($id){ 
 	$("#sub_department_id").html('');

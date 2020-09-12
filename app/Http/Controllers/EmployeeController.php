@@ -68,7 +68,10 @@ class EmployeeController extends Controller
                 
     }
     public function edit($id){ 
-        $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
+        $data['emp_id']=$id;
+        $params['paramList']=json_encode($data);
+
+        $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonDataEdit',$params); 
         $departments =$result['department'][0]; 
         $subdepartments =$result['subdepartment'];
         $users =$result['user'];  

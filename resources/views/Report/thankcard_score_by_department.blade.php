@@ -7,7 +7,7 @@
         <li><a href="#">Score By Department</a></li>
 	</ol>
 	<div id="card_content">
-		<form class="form-horizontal" action="{{url('reports/department/thankcard/score')}}" method="post">
+		<form class="form-horizontal" action="{{url('reports/department/thankcard/score')}}" method="post" id="frmSearch">
 			{{ csrf_field() }}
 			<div class="form-group"> 
 				<div class="col-sm-2">
@@ -51,15 +51,14 @@
 				</div>
 				<div class="col-sm-2">
 					<label>&nbsp;</label>
-						<button type="submit" class="btn btn-default btn-search" id="">
-						  <i class="fa fa-eye" aria-hidden="true"></i> View
-					    </button> 
-						<button type="submit" class="btn btn-default btn-search" id="">
-							<i class="fa fa-print" aria-hidden="true"></i> Print
-						</button>
+					<button type="submit" class="btn btn-default btn-search" id="">
+					  <i class="fa fa-eye" aria-hidden="true"></i> View
+				    </button> 
+					<button type="button" class="btn btn-default btn-search" id="btnPrint">
+						<i class="fa fa-download" aria-hidden="true"></i> Print
+					</button>
 				</div>
-			</div>
-
+			</div> 
 		</form>
 		 <table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -78,8 +77,8 @@
                     <td>{{$i+1}}</td>  
                     <td>{{ $thankcards[$i]['Dept_Name']}}</td>
                     <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td> 
-                    <td>{{ $thankcards[$i]['f_date']}}</td>
-                    <td>{{ $thankcards[$i]['t_date']}}</td>
+                    <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}}</td>
+                    <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
                     <td>{{ $thankcards[$i]['CountResult']}}</td> 
                 </tr> 
             @endfor
@@ -110,6 +109,19 @@ $(document).ready(function(){
 $('#department_id').change(function() { 
  	getSubDepartment($(this).val(),'');
  	$("#sub_department_id").val('');
+});
+$("#btnPrint").click(function() {  
+    var form = $("#frmSearch");
+    var url = "<?php echo url('pdfreports/department/thankcard/score');?>";  
+    $.ajax({
+       type: "POST",
+       url: url,
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           
+       }
+    }); 
 });
 function getSubDepartment($id){ 
 	$("#sub_department_id").html('');

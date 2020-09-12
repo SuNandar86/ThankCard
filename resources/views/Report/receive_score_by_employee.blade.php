@@ -6,16 +6,16 @@
         <li><a href="#">Report</a></li>
         <li><a href="#">Receive Score By Employee</a></li>
 	</ol>
-	<div id="card_content">
-		<form class="form-horizontal" action="{{url('reports/employee/thankcard/receive/score')}}" method="post">
+	<div id="card_content"> 
+		<form class="form-horizontal" action="{{url('reports/employee/thankcard/receive/score')}}" method="post" id="frmSearch">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<div class="col-sm-offset-10 col-sm-2">
 					<button type="submit" class="btn btn-default btn-search" id="">
 					  <i class="fa fa-eye" aria-hidden="true"></i> View
 				    </button> 
-					<button type="submit" class="btn btn-default btn-search" id="">
-						<i class="fa fa-print" aria-hidden="true"></i> Print
+					<button type="button" class="btn btn-default btn-search" id="btnPrint">
+						<i class="fa fa-download" aria-hidden="true"></i> Print
 					</button>
 				</div>
 			</div>
@@ -125,5 +125,43 @@
     </table>
 	</div>
 </div>
- 
+<script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script>
+<script type="text/javascript"> 
+var departments    = <?php echo json_encode($departments); ?>;
+var subdepartments = <?php echo json_encode($subdepartments); ?>;
+
+$(document).ready(function(){ 
+	$dep_id=$("#department_id").val(); 
+	getSubDepartment($dep_id);
+	$("#sub_department_id").val('%');
+ });	
+$('#department_id').change(function() { 
+ 	getSubDepartment($(this).val(),'');
+ 	$("#sub_department_id").val('');
+});
+$("#btnPrint").click(function() {  
+    var form = $("#frmSearch");
+    var url = "<?php echo url('pdfreports/employee/thankcard/receive/score');?>";  
+    $.ajax({
+       type: "POST",
+       url: url,
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           
+       }
+    }); 
+});
+function getSubDepartment($id){ 
+	$("#sub_department_id").html('');
+	$("#sub_department_id").append(new Option('Select Sub Department', '%'));
+	 
+	$.each(subdepartments, function(key, item){ 
+		if(item.Dept_Id ==$id){
+			$("#sub_department_id").append(new Option(item.Sub_Dept_Name, item.Sub_Dept_Id));
+		} 
+    }); 
+ } 
+
+</script> 
 @endsection
