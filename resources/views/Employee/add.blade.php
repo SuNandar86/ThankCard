@@ -135,30 +135,10 @@
 	</div>
 </div>
 <script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ asset('js/cascade_select.js') }}"></script>
 <script type="text/javascript"> 
-	var departments    = <?php echo json_encode($departments); ?>;
-	var subdepartments = <?php echo json_encode($subdepartments); ?>;
-	var edit_sub_dep_id = "<?php echo $employee->sub_deaprtment_id; ?>";
-
-	$(document).ready(function(){ 
-		$dep_id=$("#department_id").val(); 
-		getSubDepartment($dep_id,edit_sub_dep_id);
-		$("#sub_department_id").val(edit_sub_dep_id);
-	});	
-    $('#department_id').change(function() { 
-     	getSubDepartment($(this).val(),'');
-     	$("#sub_department_id").val('');
-	});
-	 
-	function getSubDepartment($id,$sel_value){  
-		$("#sub_department_id").html('');
-		$("#sub_department_id").append(new Option('Select Sub Department', ''));
-		 
- 		$.each(subdepartments, function(key, item){ 
- 			if(item.Dept_Id ==$id){
- 				$("#sub_department_id").append(new Option(item.Sub_Dept_Name, item.Sub_Dept_Id));
- 			} 
-        }); 
- 	}
+var subdepartments = <?php echo json_encode($subdepartments); ?>;
+var sel_value = "<?php echo $employee->sub_deaprtment_id; ?>"; 
+ 
 </script>
 @endsection

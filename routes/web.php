@@ -97,4 +97,7 @@ Route::group(['middleware' => ['checkuser']], function () {
     Route::post('pdfreports/employee/thankcard/sent/score','ReportController@sentScoreByEmployeePDF');
     Route::post('pdfreports/employee/thankcard/sent/detail','ReportController@sentScoreDetailByEmployeePDF');
     Route::post('pdfreports/thankcard/department/relation','ReportController@departmentRelationPDF');
+
+    //Activities
+    Route::get('activities','HomeController@activities');
 });

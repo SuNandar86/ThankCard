@@ -38,8 +38,10 @@
                 <td>{{$users[$i]['RoleName']}}</td> 
                 <td>{{date('d-m-Y',strtotime($users[$i]['Created_Date']))}}</td> 
                 <td>
-                 <a href="{{url('user/edit')}}/{{$users[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
-                    <a href="{{url('user/delete')}}/{{$users[$i]['Id']}}" class="text-danger btn btn-default"><i class="fa fa-1x fa-trash"></i></a>
+                <a href="{{url('user/edit')}}/{{$users[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
+                <a href="{{url('user/delete')}}/{{$users[$i]['Id']}}" class="text-danger btn btn-default" onclick="return confirm('Are you sure you want to delete this item?');">
+                        <i class="fa fa-1x fa-trash"></i>
+                    </a>
                 </td>
             </tr> 
             @endfor

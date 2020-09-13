@@ -6,7 +6,7 @@
 
         <title>ThankCard</title>
         <!--Favicon -->
-        <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}" type="image/x-icon"/>
+        <link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/x-icon"/>
         <!-- Fonts -->
          <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
@@ -94,7 +94,7 @@
     <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script> 
     <script src="{{ asset('js/jquery/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/jquery/dataTables.bootstrap4.min.js') }}"></script>
-    <!-- <script src="{{ asset('js/plugin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script> -->
+    
     <script src="{{ asset('js/app.min.js')}}"></script>  
     <script type="text/javascript">
         $(document).ready(function () { 

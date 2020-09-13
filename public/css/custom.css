@@ -23,6 +23,9 @@
 .right{
     float: right;
 }
+.center{
+    text-align: center;
+}
 .smart-style-2.menu-on-top aside#left-panel nav>ul>li>ul{
     width: 243px;
 }
@@ -204,3 +207,9 @@ header.gird>.widget-icon {
 .btn-download .fa{
   color:#fff;
 }  
+/*Activities*/
+.img_banner{ 
+    background: url('../img/banner.jpg') no-repeat center top; 
+    background-size: cover; 
+    height:100vh;
+}

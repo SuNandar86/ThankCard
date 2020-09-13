@@ -37,7 +37,10 @@
                 <td>{{$subdepartments[$i]['Dept_Name']}}</td> 
                 <td>
                     <a href="{{url('subdepartment/edit')}}/{{$subdepartments[$i]['Sub_Dept_Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
-                    <a href="{{url('subdepartment/delete')}}/{{$subdepartments[$i]['Sub_Dept_Id']}}/{{$subdepartments[$i]['Dept_Id']}}" class="text-danger btn btn-default"><i class="fa fa-1x fa-trash"></i></a> 
+                    <a href="{{url('subdepartment/delete')}}/{{$subdepartments[$i]['Sub_Dept_Id']}}/{{$subdepartments[$i]['Dept_Id']}}" class="text-danger btn btn-default"
+                     onclick="return confirm('Are you sure you want to delete this item?');">
+                     <i class="fa fa-1x fa-trash" ></i>
+                    </a> 
                 </td>
             </tr>
             @endfor

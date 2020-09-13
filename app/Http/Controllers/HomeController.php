@@ -39,4 +39,7 @@ class HomeController extends Controller
       
     	return view ('home',compact('thankcards','employees'));
     }
+    public function activities(){
+        return view('activities');
+    }
 }

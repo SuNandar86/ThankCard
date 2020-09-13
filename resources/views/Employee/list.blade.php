@@ -53,7 +53,9 @@
                     <td>{{date('d-m-Y',strtotime($employees[$i]['Created_Date']))}}</td>
                     <td>
                         <a href="{{url('employee/edit')}}/{{$employees[$i]['Emp_Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
-                        <a href="{{url('employee/delete')}}/{{$employees[$i]['Emp_Id']}}" class="text-danger btn btn-default"><i class="fa fa-1x fa-trash"></i></a>
+                        <a href="{{url('employee/delete')}}/{{$employees[$i]['Emp_Id']}}" class="text-danger btn btn-default"  onclick="return confirm('Are you sure you want to delete this item?');">
+                            <i class="fa fa-1x fa-trash"></i>
+                        </a>
                     </td>
                 </tr> 
             @endfor

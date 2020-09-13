@@ -126,19 +126,11 @@
 	</div>
 </div>
 <script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ asset('js/cascade_select.js') }}"></script>
 <script type="text/javascript"> 
-var departments    = <?php echo json_encode($departments); ?>;
-var subdepartments = <?php echo json_encode($subdepartments); ?>;
+var subdepartments = <?php echo json_encode($subdepartments); ?>; 
+var sel_value = "%";
 
-$(document).ready(function(){ 
-	$dep_id=$("#department_id").val(); 
-	getSubDepartment($dep_id);
-	$("#sub_department_id").val('%');
- });	
-$('#department_id').change(function() { 
- 	getSubDepartment($(this).val(),'');
- 	$("#sub_department_id").val('');
-});
 $("#btnPrint").click(function() {  
     var form = $("#frmSearch");
     var url = "<?php echo url('pdfreports/employee/thankcard/receive/score');?>";  
@@ -151,17 +143,6 @@ $("#btnPrint").click(function() {
            
        }
     }); 
-});
-function getSubDepartment($id){ 
-	$("#sub_department_id").html('');
-	$("#sub_department_id").append(new Option('Select Sub Department', '%'));
-	 
-	$.each(subdepartments, function(key, item){ 
-		if(item.Dept_Id ==$id){
-			$("#sub_department_id").append(new Option(item.Sub_Dept_Name, item.Sub_Dept_Id));
-		} 
-    }); 
- } 
-
+}); 
 </script> 
 @endsection

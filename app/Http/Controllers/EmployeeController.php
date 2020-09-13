@@ -93,7 +93,7 @@ class EmployeeController extends Controller
         $employee->phone=$employees[0]['Phone'];
         $employee->photo_name=$employees[0]['PhotoName'];
 
-        $action ="Edit";
+        $action ="Edit"; 
 
         return view('employee.add',compact('employee','departments','subdepartments','users','action'));
     }

@@ -43,7 +43,7 @@
                 </td> 
                 <td>
                     <a href="{{url('department/edit')}}/{{$departments[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
-                    <a href="{{url('department/delete')}}/{{$departments[$i]['Id']}}" class="text-danger btn btn-default"><i class="fa fa-1x fa-trash"></i></a> 
+                    <a href="{{url('department/delete')}}/{{$departments[$i]['Id']}}" class="text-danger btn btn-default" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-1x fa-trash"></i></a> 
                 </td>
             </tr>
             @endfor
