@@ -4,7 +4,7 @@
 	<ol class="breadcrumb">
         <li><a href="{{url('home')}}">Home</a></li>
         <li><a href="#">Report</a></li>
-        <li><a href="#">Sent Score By Employee</a></li>
+        <li><a href="#">Sent Card By Employee</a></li>
 	</ol>
 	<div id="card_content">
 		<form class="form-horizontal" action="{{url('reports/employee/thankcard/sent/score')}}" method="post" id="frmSearch">
@@ -98,8 +98,8 @@
 	            <td>{{ $thankcards[$i]['Emp_Name']}} </td>
 	            <td>{{ $thankcards[$i]['Dept_Name']}}</td>
 	            <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
-	            <td>{{ $thankcards[$i]['f_date']}}</td>
-	            <td>{{ $thankcards[$i]['t_date']}}</td>
+	            <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}} </td>
+	            <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
 	            <td>{{ $thankcards[$i]['CountResult']}}</td> 
 	            <td>
 		             <a href="{{url('reports/employee/thankcard/sent/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/{{$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 

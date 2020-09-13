@@ -67,7 +67,7 @@ class Helper
                         // $child .="<li>".$arr_menu[$j]['MenuName']."</li>";
 		                $child .="<li>"; 
 		                $child .="<a href='".url($arr_menu[$j]['RoutePath'])."' title =''><i class='fa fa-lg".$arr_menu[$i]['Icon']."'></i>";
-		                $child .="<span  class='menu-item-parent'>";
+		                $child .="<span >";
 		                $child .=$arr_menu[$j]['MenuName'].'</a>';
 		         	}
                 }

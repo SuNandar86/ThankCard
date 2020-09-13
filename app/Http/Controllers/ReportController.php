@@ -145,7 +145,7 @@ class ReportController extends Controller
     	$params['paramList']=json_encode($data);
     	$result=Helper::GET(\Config::get('setting.api_path').'/Report/GetSentThankCardTotalByEmployeeView',$params); 
     	$thankcards=$result['thankcard'][0]; 
-          
+       
     	return view('report.sent_score_detail_by_employee',compact('thankcards','data')); 
     }
     public function departmentRelation(Request $request){

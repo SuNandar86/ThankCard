@@ -99,7 +99,7 @@
     <script type="text/javascript">
         $(document).ready(function () { 
             // set current date
-            setCurrentDate();
+           setCurrentDate();
             $('#dtBasicExample').DataTable({
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
@@ -119,6 +119,21 @@
                        + '-' + ('0' + today.getDate()).slice(-2);
                 document.getElementById("from_date").value = date;
                 document.getElementById("to_date").value = date; 
+
+                from_date="<?php echo Request::old('from_date');?>";
+                to_date  ="<?php echo Request::old('to_date');?>"; 
+
+                if(from_date){
+                    document.getElementById("from_date").value = from_date;
+                }else{
+                    document.getElementById("from_date").value = date;
+                }
+                if(to_date){
+                    document.getElementById("to_date").value = to_date;
+                }else{
+                    document.getElementById("to_date").value = date;
+                }
+                
            }
     </script>   
 </html> 
