@@ -50,7 +50,7 @@
 		      <div class="col-sm-6">          
 		        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password"  value="{{Request::old('password')!=""?Request::old('password'):$user->password}}"  required="required">
 		      </div>
-		    </div> 
+		    </div>  
 		    <div class="form-group">
 		    	<label class="control-label col-sm-3" for="pwd">Role:</label>
 		    	<div class="col-sm-6"> 

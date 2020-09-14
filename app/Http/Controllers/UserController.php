@@ -24,7 +24,7 @@ class UserController extends Controller
             $data['User_Name'] =$request->user_name;
             $data['password'] =$request->password;
             $data['role_id'] =$request->role_id; 
-            
+
 
             $params['paramList']=json_encode($data);
 
