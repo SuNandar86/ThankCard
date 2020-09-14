@@ -41,16 +41,7 @@
                         <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
                             <img src="{{ asset('img/avatars/female.png') }}" alt="User" class="online"/>
                         </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i
-                                        class="fa fa-cog"></i> Setting</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i
-                                        class="fa fa-user"></i> <u>P</u>rofile</a>
-                            </li>
+                        <ul class="dropdown-menu pull-right"> 
                             <li class="divider"></li>
                             <li>
                                 <a href="{{url('logout')}}"
