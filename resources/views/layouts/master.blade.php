@@ -49,7 +49,7 @@
                                 <a href="{{url('logout')}}"
                                    class="padding-10 padding-top-5 padding-bottom-5"
                                    data-action="userLogout"><i
-                                        class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>Logout</strong></a>
+                                        class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
                             </li>
                         </ul>
                     </li>
