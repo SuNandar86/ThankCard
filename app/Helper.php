@@ -15,6 +15,10 @@ class Helper
         $employee=\Session::get('Emp_Photo'); 
         return $employee['Emp_Photo']; 
     }
+    public static function UserName(){
+        $user =\Session::get('User');
+        return $user->name;
+    }
     public static function GET($url,$data){
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         if(count($data)>0){ 
