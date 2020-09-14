@@ -24,6 +24,7 @@ class UserController extends Controller
             $data['User_Name'] =$request->user_name;
             $data['password'] =$request->password;
             $data['role_id'] =$request->role_id; 
+            
 
             $params['paramList']=json_encode($data);
 
@@ -124,7 +125,7 @@ class UserController extends Controller
     	   	   \Session::put('User',$user);  
    	   	  	   \Session::save(); 
 
-               \Session::put('UserEmployee',$result['emp'][0]);
+               \Session::put('UserEmployee',isset($result['emp'][0])?$result['emp'][0]:"");
                \Session::save(); 
 
                \Session::put('Authorities',$result['menu']) ;

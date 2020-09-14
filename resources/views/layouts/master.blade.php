@@ -89,8 +89,6 @@
     <script src="{{ asset('js/app.min.js')}}"></script>  
     <script type="text/javascript">
         $(document).ready(function () { 
-            // set current date
-           setCurrentDate();
             $('#dtBasicExample').DataTable({
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
@@ -104,6 +102,8 @@
                 "searching": false,
                 "bLengthChange": false
             }); 
+            // set current date
+            setCurrentDate();
            function setCurrentDate(){ 
                 var today = new Date(); 
                 date =today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2)
