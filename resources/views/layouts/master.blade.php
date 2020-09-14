@@ -38,9 +38,10 @@
                 <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
                     <span class="label" style="font-size:12px;"><strong>{{App\Helper::UserName()}}</strong></span>
                     <li class="">
-                      
+                        <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+                           
                             <img src="{{ asset('img/avatars/female.png') }}" alt="User" class="online"/>
-                            
+                          
                         </a>
                         <ul class="dropdown-menu pull-right"> 
                             <li class="divider"></li>
