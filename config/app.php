@@ -231,7 +231,7 @@ return [
         'Html'  => Collective\Html\HtmlFacade::class,
         'Helpers'   => 'App\Helper',
         'Image' => Intervention\Image\Facades\Image::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class, 
     ],
 
 ];

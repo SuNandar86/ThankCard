@@ -39,9 +39,13 @@
                     <span class="label" style="font-size:12px;"><strong>{{App\Helper::UserName()}}</strong></span>
                     <li class="">
                         <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-                           
+                            @if(App\Helper::EmployeePhoto())
+                            <img src="{{ asset('upload/images') }}/{{App\Helper::EmployeeID()}}/{{App\Helper::EmployeePhoto()}}" 
+
+                             alt="User" class="online"/>
+                            @else
                             <img src="{{ asset('img/avatars/female.png') }}" alt="User" class="online"/>
-                          
+                            @endif
                         </a>
                         <ul class="dropdown-menu pull-right"> 
                             <li class="divider"></li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee; 
+use App\Models\User; 
 use App\Helper;
 use File;
 class EmployeeController extends Controller
@@ -27,7 +28,10 @@ class EmployeeController extends Controller
             $data['email'] =$request->email;
             $data['phone'] =$request->phone;
             $data['photoname'] =$_FILES['photo']['name'];
-
+            $data['User_Name'] =$request->user_name;
+            $data['password'] =$request->password;
+            $data['role_id']  =$request->role_id;
+ 
             $params['paramList']=json_encode($data);
             $result=Helper::POST( \Config::get('setting.api_path').'/Employees/Employee',$params);
   
@@ -45,52 +49,67 @@ class EmployeeController extends Controller
 
             }elseif($result['status'][0]['statuscode']=='406'){
                 \Session::flash('employee.message','Employee named “'
-                                .$request->employee_name.'” is already taken!'); 
+                                .$request->user_name.'” is already taken!'); 
                 \Session::flash('status',"alert-warning"); 
             } 
             
         } 
-        //get user,department and subdepartment list
+        //get department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
         $departments =$result['department'][0]; 
-        $subdepartments =$result['subdepartment'];
-        $users =$result['user']; 
+        $subdepartments =$result['subdepartment']; 
+
+         // get roles
+        $params['roleid']="%";
+
+        $result=Helper::GET( \Config::get('setting.api_path').'/Users/GetRole',$params);
+        $roles =$result['role'][0]; 
         
         $action ="Add";
         $employee =new Employee;
-        return view('employee.add',compact('employee','departments','subdepartments',
-                                           'users','action'));
+        $user =new User;
+        return view('employee.add',compact('user','employee','departments','subdepartments','roles'
+                                           ,'action'));
                 
     }
     public function edit($id){ 
-        $data['emp_id']=$id;
-        $params['paramList']=json_encode($data);
-
-        $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonDataEdit',$params); 
+        //get department and subdepartment list  
+        $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
         $departments =$result['department'][0]; 
-        $subdepartments =$result['subdepartment'];
-        $users =$result['user'];  
+        $subdepartments =$result['subdepartment']; 
+
+        // get roles
+        $params['roleid']="%";
+
+        $result=Helper::GET( \Config::get('setting.api_path').'/Users/GetRole',$params);
+        $roles =$result['role'][0]; 
+        
 
         //get employee        
         $params['empid']=$id;
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
-        $employees =$result['employee'][0];
-       
+        $employees =$result['employee'][0]; 
+
         $employee = new Employee;
         $employee->id=$employees[0]['Emp_Id'];
         $employee->name=$employees[0]['Emp_Name'];
         $employee->department_id=$employees[0]['Dept_Id'];
-        $employee->sub_deaprtment_id=$employees[0]['Sub_Dept_Id'];
-        // $employee->user_id=$employees[0]['User_Id'];
+        $employee->sub_deaprtment_id=$employees[0]['Sub_Dept_Id']; 
         $employee->address=$employees[0]['Address'];
         $employee->email=$employees[0]['Email'];
         $employee->phone=$employees[0]['Phone'];
         $employee->photo_name=$employees[0]['PhotoName'];
 
-        $action ="Edit"; 
+        $action ="Edit";  
 
-        return view('employee.add',compact('employee','departments','subdepartments','users','action'));
+        $user =new User;
+        $user->id=$employees[0]['User_Id'];
+        $user->name=$employees[0]['User_Name'];
+        $user->role_id=$employees[0]['User_Role']; 
+        $user->password=$employees[0]['User_Pass'];
+
+        return view('employee.add',compact('employee','user','departments','subdepartments','roles','action'));
     }
     public function update(Request $request,$id){
         $request->flash();
@@ -99,11 +118,14 @@ class EmployeeController extends Controller
         $data['Name'] =$request->employee_name;
         $data['Sub_Dept_Id'] =isset($request->sub_department_id)?$request->sub_department_id:0; 
         $data['Dept_Id'] =$request->department_id; 
-        $data['User_Id'] =$request->user_id;
         $data['Address'] =$request->address; 
         $data['email'] =$request->email;
         $data['phone'] =$request->phone;
         $data['photoname'] =$_FILES['photo']['name'] !=""?$_FILES['photo']['name']:$request->old_photo; 
+        $data['User_Name'] =$request->user_name;
+        $data['Password'] =$request->password;
+        $data['user_id']  =$request->user_id;
+        $data['Role_Id']  =$request->role_id;
 
         $params['paramList']=json_encode($data);
         $result=Helper::PUT( \Config::get('setting.api_path').'/Employees/UpdateEmployee',$params);

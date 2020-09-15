@@ -12,8 +12,8 @@ class Helper
         return $employee['Emp_Name'];
     }
     public static function EmployeePhoto(){
-        $employee=\Session::get('Emp_Photo'); 
-        return $employee['Emp_Photo']; 
+        $employee=\Session::get('UserEmployee'); 
+        return $employee['Emp_PhotoName']; 
     }
     public static function UserName(){
         $user =\Session::get('User');

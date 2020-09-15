@@ -31,8 +31,6 @@
                 <th>Subdepartment</th> 
                 <th>User Name</th> 
                 <th>Address</th> 
-                <th>Email</th> 
-                <th>Phone</th>
                 <th>Created At</th> 
                 <th>Action</th>
             </tr>
@@ -41,15 +39,17 @@
             @for($i=0;$i<count($employees);$i++)
                 <tr>
                     <td>
-                        <img src="{{ URL::asset('upload/images')}}/{{$employees[$i]['Emp_Id']}}/{{$employees[$i]['PhotoName']}}" width="100px" height="100px" />  
+                        @if(isset($employees[$i]['PhotoName']))
+                            <img src="{{ URL::asset('upload/images')}}/{{$employees[$i]['Emp_Id']}}/{{$employees[$i]['PhotoName']}}" width="100px" height="100px" />  
+                        @else
+                            <img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/>  
+                        @endif
                     </td> 
                     <td>{{ $employees[$i]['Emp_Name']}}</td>
                     <td>{{ $employees[$i]['Dept_Name']}}</td>
                     <td>{{ $employees[$i]['Sub_Dept_Name']}}</td>
                     <td>{{ $employees[$i]['User_Name']}}</td>
-                    <td>{{ $employees[$i]['Address']}}</td>
-                    <td>{{ $employees[$i]['Email']}}</td>
-                    <td>{{ $employees[$i]['Phone']}}</td> 
+                    <td>{{ $employees[$i]['Address']}}</td> 
                     <td>{{date('d-m-Y',strtotime($employees[$i]['Created_Date']))}}</td>
                     <td>
                         <a href="{{url('employee/edit')}}/{{$employees[$i]['Emp_Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
@@ -67,9 +67,7 @@
                 <th>Department </th> 
                 <th>Subdepartment</th> 
                 <th>User Name</th> 
-                <th>Address</th> 
-                <th>Email</th> 
-                <th>Phone</th>
+                <th>Address</th>                 
                 <th>Created At</th> 
                 <th>Action</th>                
             </tr>

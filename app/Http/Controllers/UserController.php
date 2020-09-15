@@ -124,9 +124,9 @@ class UserController extends Controller
 
     	   	   \Session::put('User',$user);  
    	   	  	   \Session::save(); 
-
+             
                \Session::put('UserEmployee',isset($result['emp'][0])?$result['emp'][0]:"");
-               \Session::save(); 
+               \Session::save();  
 
                \Session::put('Authorities',$result['menu']) ;
                \Session::save();

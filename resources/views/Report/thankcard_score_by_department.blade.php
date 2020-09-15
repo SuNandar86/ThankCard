@@ -1,10 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+	<ol class="breadcrumb"> 
         <li><a href="#">Report</a></li>
-        <li><a href="#">Score By Department</a></li>
+        <li><a href="#">Total Card By Department</a></li>
 	</ol>
 	<div id="card_content">
 		<form class="form-horizontal" action="{{url('reports/department/thankcard/score')}}" method="post" id="frmSearch">
@@ -100,7 +99,8 @@
 <script src="{{ asset('js/cascade_select.js') }}"></script>
 <script type="text/javascript"> 
 var subdepartments = <?php echo json_encode($subdepartments); ?>; 
-var sel_value = "%";
+var sel_value =  "<?php echo  Request::old('sub_department_id')!=""?
+							  Request::old('sub_department_id'):"%"; ?>";  
  
 $("#btnPrint").click(function() {  
     var form = $("#frmSearch");

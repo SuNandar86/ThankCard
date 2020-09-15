@@ -74,17 +74,18 @@ Route::group(['middleware' => ['checkuser']], function () {
     Route::post('thankcard/employees/search','ThankCardController@employeelist');
     Route::get('thankcard/create/{name}/{id}','ThankCardController@createThankCard');
  	Route::post('thankcard/create/{name}/{id}','ThankCardController@createThankCard'); 
+    Route::post('thankcard/print/card','ThankCardController@printThankCard');
 
  	//Report
  	Route::get('reports/department/thankcard/score','ReportController@thankCardScoreByDepartment');
  	Route::post('reports/department/thankcard/score','ReportController@thankCardScoreByDepartment');
  	Route::get('reports/employee/thankcard/receive/score','ReportController@receiveScoreByEmployee');
  	Route::post('reports/employee/thankcard/receive/score','ReportController@receiveScoreByEmployee');
- 	Route::get('reports/employee/thankcard/receive/detail/{f_emp_id}/{t_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}','ReportController@receiveScoreByEmployeeDetail'); 
+ 	Route::get('reports/employee/thankcard/receive/detail/{t_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}','ReportController@receiveScoreByEmployeeDetail'); 
 
  	Route::get('reports/employee/thankcard/sent/score','ReportController@sentScoreByEmployee');
  	Route::post('reports/employee/thankcard/sent/score','ReportController@sentScoreByEmployee');
- 	Route::get('reports/employee/thankcard/sent/detail/{f_emp_id}/{t_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}',
+ 	Route::get('reports/employee/thankcard/sent/detail/{f_emp_id}/{dept_id}/{subdep_id}/{f_date}/{t_date}',
  		'ReportController@sentScoreByEmployeeDetail'); 
 
     Route::get('reports/thankcard/department/relation','ReportController@departmentRelation');

@@ -101,7 +101,8 @@
 <script src="{{ asset('js/cascade_select.js') }}"></script>
 <script type="text/javascript">  
     var subdepartments = <?php echo json_encode(isset($subdepartments)?$subdepartments:""); ?>;
- 	var sel_value = "%";
+ 	var sel_value =  "<?php echo  Request::old('sub_department_id')!=""?
+							  Request::old('sub_department_id'):"%"; ?>"; 
 
 	$("#btnPrint").click(function() {  
 	    var form = $("#frmSearch");

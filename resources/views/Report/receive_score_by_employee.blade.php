@@ -1,10 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+	<ol class="breadcrumb"> 
         <li><a href="#">Report</a></li>
-        <li><a href="#">Receive Score By Employee</a></li>
+        <li><a href="#">Total Received Card By Employee</a></li>
 	</ol>
 	<div id="card_content"> 
 		<form class="form-horizontal" action="{{url('reports/employee/thankcard/receive/score')}}" method="post" id="frmSearch">
@@ -52,31 +51,20 @@
 			        	<option value="%">Select Sub Department</option>
 			        </select>
 				</div> 
+				<div class="col-sm-2">
+					<label class="control-label">Employee:</label>
+					<select name="employee_id"  class="form-control" id="employee_id" >
+			        	<option value="%">All</option> 
+					</select>
+				</div> 
 				<div class="col-sm-1">
 					<label class="control-label" >Order By:</label> 
 			        <select name="order" class="form-control">
 			        	<option value="asc">ASC</option>
 			        	<option value="desc">DESC</option>
 			        </select>
-				</div>
-				<div class="col-sm-2">
-					<label class="control-label">Employee:</label>
-					<select name="employee_id"  class="form-control" >
-			        	<option value="%">All</option>
-			         	@php
-			        	    $employee=Request::old('employee_id');
-		                @endphp
-			        	@for($i=0;$i<count($employees);$i++)
-				        	@if($employees[$i]['Emp_Id']==$employee)
-				        		<option value="{{$employees[$i]['Emp_Id']}}" selected="selected">{{$employees[$i]['Emp_Name']}}</option>
-				        	@else
-				        		<option value="{{$employees[$i]['Emp_Id']}}">{{$employees[$i]['Emp_Name']}}</option>
-				        	@endif
-			        	@endfor 
-					</select>
 				</div> 
-			</div> 
-
+			</div>  
 		</form>
 		<table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -102,7 +90,7 @@
 	            <td>{{ $thankcards[$i]['t_date']}}</td>
 	            <td>{{ $thankcards[$i]['CountResult']}}</td> 
 	            <td>
-		            <a href="{{url('reports/employee/thankcard/receive/detail')}}/{{$thankcards[$i]['From_Emp_Id']}}/{{$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
+		            <a href="{{url('reports/employee/thankcard/receive/detail')}}/{{$thankcards[$i]['To_Emp_Id']}}/{{$thankcards[$i]['Dep_Id']}}/{{$thankcards[$i]['Sub_Dept_Id']}}/{{$thankcards[$i]['f_date']}}/{{$thankcards[$i]['t_date']}}" 
 										            			   title="View">
 		            	<i class="fa fa-eye" aria-hidden="true"></i> View
 		            </a>
@@ -128,8 +116,13 @@
 <script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script>
 <script src="{{ asset('js/cascade_select.js') }}"></script>
 <script type="text/javascript"> 
-var subdepartments = <?php echo json_encode($subdepartments); ?>; 
-var sel_value = "%";
+var subdepartments = <?php echo json_encode(isset($subdepartments)?$subdepartments:""); ?>;
+var sel_value =  "<?php echo  Request::old('sub_department_id')!=""?
+					  Request::old('sub_department_id'):"%"; ?>";
+var employees =<?php echo json_encode($employees);?>;  
+
+var sel_emp_val ="<?php echo  Request::old('employee_id')!=""?
+							  Request::old('employee_id'):"%"; ?>";  
 
 $("#btnPrint").click(function() {  
     var form = $("#frmSearch");

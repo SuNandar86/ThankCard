@@ -1,13 +1,12 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+	<ol class="breadcrumb"> 
         <li><a href="#">ThankCard</a></li>
         <li><a href="#">Sent</a></li>
 	</ol>
-	<div class="gird" style="margin-top:30px;"> 
-	   <h2>Your's Sent List</h2> 
+	<div class="gird"> 
+	   <h4>{{App\Helper::EmployeeName()}}'s Sent List</h4>
     </div>
 	<div id="card_content">
 		<div id="search">
@@ -15,19 +14,31 @@
     			{{ csrf_field() }}
 	    		<div class="form-group">
 	    			<div class="col-sm-2">
-		    			<label for="employee_id">Select Employee:</label>
-						<select name="employee_id"  class="form-control" >
+						<label class="control-label" for="user_id">Department:</label>
+				      	<select name="department_id"  class="form-control"  id="department_id">	
+			      			@php
+					        	$department_id=Request::old('department_id');
+				            @endphp
 				        	<option value="%">All</option>
-				         	@php
-				        	    $employee=Request::old('employee');
-			                @endphp
-				        	@for($i=0;$i<count($employees);$i++)
-					        	@if($employees[$i]['Emp_Id']==$employee)
-					        		<option value="{{$employees[$i]['Emp_Id']}}" selected="selected">{{$roles[$i]['Name']}}</option>
+				        	@for($i=0;$i<count($departments);$i++)
+					        	@if($departments[$i]['Id']==$department_id)
+					        		<option value="{{$departments[$i]['Id']}}" selected="selected">{{$departments[$i]['Name']}}</option>
 					        	@else
-					        		<option value="{{$employees[$i]['Emp_Id']}}">{{$employees[$i]['Emp_Name']}}</option>
+					        		<option value="{{$departments[$i]['Id']}}">{{$departments[$i]['Name']}}</option>
 					        	@endif
 				        	@endfor 
+					    </select>
+					</div>
+					<div class="col-sm-2">
+						<label class="control-label" for="sub_department_id">Sub Department:</label>
+				        <select name="sub_department_id"  class="form-control" id="sub_department_id">
+				        	<option value="%">All</option>
+				        </select>
+					</div>
+	    			<div class="col-sm-2">
+		    			<label for="employee_id">Select Employee:</label>
+						<select name="employee_id"  class="form-control" id="employee_id" >
+				        	<option value="%">All</option> 
 						</select>
 					</div>
 					<div class="col-sm-2">
@@ -92,4 +103,17 @@
 		    </table>
 	</div>
 </div>
+<script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ asset('js/cascade_select.js') }}"></script>
+<script type="text/javascript">  
+    var subdepartments = <?php echo json_encode(isset($subdepartments)?$subdepartments:""); ?>;
+ 	var sel_value =  "<?php echo  Request::old('sub_department_id')!=""?
+							  Request::old('sub_department_id'):"%"; ?>";
+    var employees =<?php echo json_encode($employees);?>;  
+
+    var sel_emp_val ="<?php echo  Request::old('employee_id')!=""?
+							  Request::old('employee_id'):"%"; ?>"; 
+ 
+     
+</script>
 @endsection

@@ -1,10 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+	<ol class="breadcrumb"> 
         <li><a href="#">Inbox</a></li>
-        <li><a href="#">Receive</a></li>
+        <li><a href="#">Reply</a></li>
 	</ol>
 	<div id="receive_content">
 		@if(Session::has('receive.message')!="")
@@ -18,73 +17,81 @@
         </div>
         @endif  
         <div class="form-container" style="border: none;">
-        	<form class="form-horizontal" action="{{url('thankcard/reply')}}/{{$thankcards[0]['Id']}}" method="post">
-        		{{ csrf_field() }}  
-        		<div class="form-group">
-        			<label class="control-label col-sm-2" for="photo">&nbsp;</label>
-	                <div class="col-sm-2 col-md-1" style="text-align: center;"> 
-	                	@if($employee[0]['PhotoName'])
-	                    	<img src="{{ URL::asset('upload/images')}}/{{$employee[0]['Emp_Id']}}/{{$employee[0]['PhotoName']}}" class="rounded-circle" alt="Cinque Terre" > 
-	                    @else
-	                    	<img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/>  
-	                    @endif
-	                    <br/>
-	                    <span class="display_name"><strong>{{$employee[0]['Emp_Name']}}</strong></span><br/> 
-	                </div>  
-	                <div class="col-sm-7 col-md-8">
-	                	<div class="message"> 
-	                	    {{$thankcards[0]['SendText']}} 
-	                	</div>
-	                	<div class="message_date">
-	                		 <span><strong> Date:{{date('d-m-Y H:i:s',strtotime($thankcards[0]['SendDate']))}} <strong></span>
-	                	</div>
-	                </div>
+        	<div class="row">
+        		<div class="col-sm-offset-10 col-sm-2 print_card">
+        			<button type="button" class="btn btn-default right" id="btnPrint">
+				        <i class="fa fa-download" aria-hidden="true"></i> Print
+				   </button> 
         		</div>
-        		<div class="form-group"> 
-        			@if($thankcards[0]['ReplyText'])
-        			<div id="reply_message">
-            			<label class="control-label col-sm-2" for="photo">&nbsp;</label>
-            			<div class="col-sm-2 col-md-1" style="text-align: center;"> 
-            				@if({$user['employee_photo'])
-		                    	<img src="{{ URL::asset('upload/images')}}/{{$user['employee_id']}}/{{$user['employee_photo']}}" class="rounded-circle" alt="Cinque Terre"  > 
-		                    @else
-		                    	<img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/> 
-		                    @endif
-		                    <br/>
-		                    <span class="display_name"><strong>{{$user['employee_name']}}</strong></span><br/> 
-		                </div>
-		                <div class="col-sm-7 col-md-8">
-		                	 <a href="#" data-href="#" id="reply_edit" class="text-danger reply_edit" title="Edit your reply">
-		                	 	<i class="fa fa-1x fa-edit"></i>
-		                	 </a>
-		                	<div class="message"> 
-		                	    {{$thankcards[0]['ReplyText']}} 
-		                	</div>
-		                	<div class="message_date">
-		                		 <span><strong> Date:{{date('d-m-Y H:i:s',strtotime($thankcards[0]['ReplyDate']))}} <strong></span>
-		                	</div> 
-		                </div> 
-		            </div>
-		            @endif
-	                <div id="reply_message_edit">
-	                	<label class="control-label col-sm-2" for="photo">&nbsp;</label>
-            			<div class="col-sm-2 col-md-1"> 
-		                    <img src="{{ URL::asset('upload/images')}}/{{$user['employee_id']}}/{{$user['employee_photo']}}" class="rounded-circle" alt="Cinque Terre"><br/>
-		                    <span class="display_name"><strong>{{$user['employee_name']}}</strong></span><br/>
-		                    <br/> 
-		                </div> 
-	                	<div class="col-sm-7 col-md-8" > 
-            			    <input type="text" name="reply_message"   class="form-control txt_message" 
-            			    value="{{$thankcards[0]['ReplyText']}}"/> 
-            			    <button type="submit" class="btn btn-default  reply" >
-            			    	<i class="fa fa-reply" aria-hidden="true"></i> Reply</button>
-            			    @if($thankcards[0]['ReplyText'])
-            			    <button type="button" class="btn btn-default  cancel" id="btn_cancel">Cancel</button>
-            			    @endif
-        				</div> 
-	                </div>
-        		</div> 
-        	</form>
+        	</div>
+        	<div class="row">
+	        	<form class="form-horizontal" action="{{url('thankcard/reply')}}/{{$thankcards[0]['Id']}}" method="post" id="frmReply">
+	        		{{ csrf_field() }} 
+	        		<div class="col-md-6" id="thankcard_img"> 
+						<img src="{{ URL::asset('img/thankcard.jpg') }}" style="width: 100%" /> 
+					</div> 
+					<div class="col-md-6" id="reply_content">
+						<div class="form-group">
+					    	<label class="control-label col-sm-offset-9 col-sm-3">
+					    		<strong>Date: {{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}</strong>
+					    	</label>
+					    	<input type="hidden" name="send_date" value="{{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2 left" >Title:</label>
+							<div class="col-sm-10">
+					    		<input type="text" value="{{$thankcards[0]['Title']}}" class="form-control" disabled name="title"> 
+					    	</div> 
+						</div>
+						<div class="form-group">
+					    	<label class="control-label col-sm-2 left" >From:</label>
+					    	<div class="col-sm-10">
+					    		<input type="text" value="{{$employee[0]['Emp_Name']}}" class="form-control" disabled name="from">
+					    	</div>
+					    </div>
+					    <div class="form-group">
+					    	<label class="control-label col-sm-2 left" >To:</label>
+					    	<div class="col-sm-10">
+					    		<input type="text" value="{{$user['employee_name']}}" class="form-control" disabled  name="to">
+					    	</div> 
+					    </div>
+				    	<div class="form-group">
+					    	<label class="control-label col-sm-2" >Description:</label>
+					    	<div class="col-sm-10">
+					    		<textarea id="w3review" class="form-control" rows="3" disabled name="send_text">{{$thankcards[0]['SendText']}}</textarea> 
+					    	</div>
+			    		</div>
+			    		<div class="form-group">
+					    	<label class="control-label col-sm-2" >Reply:</label>
+					    	<div class="col-sm-10"> 
+					    		@if($thankcards[0]['ReplyText'])
+					    			<div id="reply_message">
+							    		<textarea class="form-control" name="reply_message" rows="3" disabled>{{$thankcards[0]['ReplyText']}}</textarea> 
+							    		<a href="#" id="reply_edit"><i class="fa fa-1x fa-edit"></i> Edit</a>
+							        </div>
+							        <div id="reply_message_edit">
+							        	<textarea class="form-control reply_text" name="reply_message" rows="3" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
+							        	<button type="submit" class="btn btn-default  reply"  
+						    		     >
+				            			    <i class="fa fa-reply" aria-hidden="true"></i> Reply
+				            		 	</button>
+					            		 <button type="button" class="btn btn-default  reply"  
+							    		     id="btn_cancel">
+					            			    <i class="fa fa-remove" aria-hidden="true"></i> Cancel
+					            		 </button>
+							        </div>
+						    	@else
+						    		<textarea class="form-control reply_text" name="reply_message" rows="5" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
+						    		 <button type="submit" class="btn btn-default  reply"  
+						    		     >
+				            			    <i class="fa fa-reply" aria-hidden="true"></i> Reply
+				            		 </button> 
+						    	@endif
+					    	</div>
+			    		</div> 
+					</div> 
+	        	</form>
+	        </div>
         </div> 
 	</div>
 </div>
@@ -98,5 +105,21 @@
 		$("#reply_message").show();
 		$("#reply_message_edit").hide();
 	})
+	$("#btnPrint").click(function() {  
+		$("input").removeAttr('disabled');	
+		$("textarea").removeAttr('disabled');
+	    var form = $("#frmReply"); 
+	    var url = "<?php echo url('thankcard/print/card');?>";  
+	    $.ajax({
+	       type: "POST",
+	       url: url,
+	       data: form.serialize(), // serializes the form's elements.
+	       success: function(data)
+	       {
+	           $("input").attr('disabled','disabled');
+	           $("textarea").attr('disabled','disabled');
+	       }
+	    }); 
+	}); 
 </script>
 @endsection

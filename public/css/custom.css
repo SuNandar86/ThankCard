@@ -23,11 +23,32 @@
 .right{
     float: right;
 }
+.left {
+    text-align: left !important;
+}
 .center{
     text-align: center;
 }
 .smart-style-2.menu-on-top aside#left-panel nav>ul>li>ul{
     width: 243px;
+}
+.btn{
+    margin-top:20px;
+}
+fieldset {
+    font-family: sans-serif;
+    border: 1px solid #ddd; 
+    width: 63%;
+    margin-left: 20%;
+    padding: 15px; 
+   padding-right: 52px;
+} 
+fieldset legend { 
+    color: #000; 
+    font-size: 18px; 
+    margin-left: 20px;
+    width: auto;
+    border-bottom: none;
 }
 /* Datatable Header Style */
 header.gird {
@@ -105,18 +126,16 @@ header.gird>.widget-icon {
 }
 
 /*Search Form */
+#search{
+    margin-top:30px;
+}
 .btn-search{
     background: #FF5200;
     margin-top: 22px;
     color:#fff;
     border:none;
 }
-/* ThankCard */
-#receive_content img.rounded-circle {
-    border-radius: 50%; 
-    width: 100px;
-    height: 100px;
-}
+/* ThankCard */ 
 #receive_content div.message{
     position: relative;
     margin-left: 20px;
@@ -179,6 +198,9 @@ header.gird>.widget-icon {
     float: right;
     margin-top:10px; 
 }
+#receive_content .btn.reply{ 
+    width: 79px;
+}
 #receive_content .btn.reply >.fa{
     color:#fff;
 }
@@ -189,16 +211,40 @@ header.gird>.widget-icon {
 #reply_message_edit{
     display: none;
 }
-#thankcard_content{
+#thankcard_content,
+#reply_content{
     border: 1px dotted orangered; 
-    padding-top:12px;
-    background: #ffa50014;
+    background: #ffa50014; 
 }
-#thankcard_content .left {
-    text-align: left;
+#reply_content input[type=text],
+#reply_content textarea { 
+    background: transparent;
+    border: 1px dotted orangered;
+}
+#reply_content .reply_text{
+    background: #fff;
+    border:1px solid #ddd;
+}
+#thankcard_content{
+    height: 406px;
+} 
+#reply_content{
+    padding-top:15px;
+    height: 408px;
 }
 #thankcard_img{
     padding:0px;
+}
+.print_card{
+    padding-right: 0px;
+}
+.print_card .btn{
+    margin-bottom: 9px;
+}
+img.rounded-circle {
+    border-radius: 50%; 
+    width: 100px;
+    height: 100px;
 }
 .btn-download{
     margin-top:5px;
@@ -207,6 +253,10 @@ header.gird>.widget-icon {
 .btn-download .fa{
   color:#fff;
 }  
+.gird{
+    margin-top:30px;
+    /*margin-bottom: 20px;*/
+}
 /*Activities*/
 .img_banner{ 
     background: url('../img/banner.jpg') no-repeat center top; 

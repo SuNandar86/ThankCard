@@ -25,22 +25,14 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Active</th> 
+                <th>Name</th> 
                 <th>Action</th> 
             </tr>
         </thead>
         <tbody>
             @for($i=0;$i<count($departments);$i++)
             <tr>
-                <td>{{$departments[$i]['Name']}}</td>
-                <td>
-                    @if($departments[$i]['Is_Active'])
-                        Yes
-                    @else
-                        No
-                    @endif
-                </td> 
+                <td>{{$departments[$i]['Name']}}</td> 
                 <td>
                     <a href="{{url('department/edit')}}/{{$departments[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
                     <a href="{{url('department/delete')}}/{{$departments[$i]['Id']}}" class="text-danger btn btn-default" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-1x fa-trash"></i></a> 
@@ -50,8 +42,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Active</th> 
+                <th>Name</th> 
                 <th>Action</th>                  
             </tr>
         </tfoot>

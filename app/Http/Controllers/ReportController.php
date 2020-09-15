@@ -51,17 +51,18 @@ class ReportController extends Controller
         }else{
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
+            $data['to_emp_id']="%";
 	        $data['from_date'] =date('Y-m-d H:i:s');
         	$data['to_date']   = date('Y-m-d H:i:s');
         	$data['order'] ='desc';
-        }
+        } 
 
         //get sent thank card score list by employee
         $params['paramList']=json_encode($data); 
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByEmployee',
         																				$params);
-        $thankcards=$result['thankcard'][0];  
+        $thankcards=$result['thankcard'][0];   
 
     	//get department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
@@ -69,18 +70,23 @@ class ReportController extends Controller
         $subdepartments =$result['subdepartment']; 
 
     	//get Employee list
-    	$params['empid']="%";
+        $data['emp_id']="%";
+        $data['from_emp_id']=Helper::EmployeeID();
+        $data['dept_id']="%";
+        $data['sub_dept_id']="%";
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
-        $employees =$result['employee'][0];
+        $params['paramList']=json_encode($data);
+
+        $result=Helper::GET(\Config::get('setting.api_path').'/ThankCards/GetEmployee',$params);
+        $employees =$result['emplist'][0]; 
 
     	return view('report.receive_score_by_employee',compact('thankcards','employees',
     															'departments','subdepartments'));				  
     }
-    public function receiveScoreByEmployeeDetail($from_emp_id,$to_emp_id,$department,$subdepartment,$from_date,$to_date){
+    public function receiveScoreByEmployeeDetail($to_emp_id,$department,$subdepartment,$from_date,$to_date){
     	$data['dept_id'] =$department;
     	$data['sub_dept_id']  =$subdepartment;
-    	$data['from_emp_id'] =$from_emp_id;
+    	$data['from_emp_id'] ='%';
     	$data['to_emp_id'] =$to_emp_id;
         $data['from_date'] =$from_date;
     	$data['to_date']   = $to_date;
@@ -107,6 +113,7 @@ class ReportController extends Controller
         }else{
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
+            $data['from_emp_id'] ='%';
 	        $data['from_date'] =date('Y-m-d H:i:s');
         	$data['to_date']   = date('Y-m-d H:i:s');
         	$data['order'] ='desc';
@@ -116,7 +123,8 @@ class ReportController extends Controller
         $params['paramList']=json_encode($data); 
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetSentThankCardTotalByEmployee', $params);
-        $thankcards=$result['thankcard'][0];  
+        $thankcards=$result['thankcard'][0];   
+
 
     	//get department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
@@ -124,20 +132,25 @@ class ReportController extends Controller
         $subdepartments =$result['subdepartment']; 
 
     	//get Employee list
-    	$params['empid']="%";
+        $data['emp_id']="%";
+        $data['from_emp_id']=Helper::EmployeeID();
+        $data['dept_id']="%";
+        $data['sub_dept_id']="%";
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
-        $employees =$result['employee'][0];
+        $params['paramList']=json_encode($data);
+
+        $result=Helper::GET(\Config::get('setting.api_path').'/ThankCards/GetEmployee',$params);
+        $employees =$result['emplist'][0]; 
 
     	return view('report.sent_score_by_employee',compact('thankcards','employees',
     														'departments','subdepartments'));
     }
-    public function sentScoreByEmployeeDetail($from_emp_id,$to_emp_id,$department,$subdepartment,$from_date,$to_date){ 
+    public function sentScoreByEmployeeDetail($from_emp_id,$department,$subdepartment,$from_date,$to_date){ 
     										 
     	$data['dept_id'] =$department;
     	$data['sub_dept_id']  =$subdepartment;
     	$data['from_emp_id'] =$from_emp_id;
-    	$data['to_emp_id'] =$to_emp_id;
+    	$data['to_emp_id'] ='%';
         $data['from_date'] =$from_date;
     	$data['to_date']   = $to_date;
     	$data['order'] ="DESC"; 
