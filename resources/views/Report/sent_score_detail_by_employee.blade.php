@@ -1,11 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
-        <li><a href="#">Report</a></li>
-        <li><a href="#">Employee</a></li>
-        <li><a href="#">Sent Score Detail</a></li>
+	<ol class="breadcrumb"> 
+        <li><a href="#">Report</a></li> 
+        <li><a href="#">Sent Card Detail</a></li>
 	</ol>
 	<div id="card_content">
 		<form class="form-horizontal"  method="post" id="frmSearch">

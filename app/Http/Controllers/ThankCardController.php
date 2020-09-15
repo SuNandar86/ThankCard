@@ -41,8 +41,8 @@ class ThankCardController extends Controller
         }else{
         	$data['from_emp_id'] =Helper::EmployeeID();
         	$data['to_emp_id']  = '%';
-	        $data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+	        $data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
             $data['to_dept_id'] ='%';
             $data['to_s_dept_id'] ='%';
         }

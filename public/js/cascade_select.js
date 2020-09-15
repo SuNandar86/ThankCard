@@ -23,24 +23,33 @@ function getSubDepartment($id){
 	$("#sub_department_id").append(new Option('All', '%'));
 	 
 	$.each(subdepartments, function(key, item){ 
-		if(item.Dept_Id ==$id){
+		if($id!="%"){
+			if(item.Dept_Id ==$id){
+				$("#sub_department_id").append(new Option(item.Sub_Dept_Name, item.Sub_Dept_Id));
+			} 
+		}else{
 			$("#sub_department_id").append(new Option(item.Sub_Dept_Name, item.Sub_Dept_Id));
-		} 
+		}	
     });     
 } 
 function getEmployee($dep_id,$sub_dept_id){  
 	if (typeof employees != 'undefined'){
 		$("#employee_id").html('');
-		$("#employee_id").append(new Option('All', '%')); 
+		$("#employee_id").append(new Option('All', '%'));
+
 		$.each(employees, function(key, item){ 
-			if($dep_id !="" && $sub_dept_id=="%"){
+			 
+			if($dep_id !="%" && $sub_dept_id=="%"){ 
 				if(item.dept_id ==$dep_id){
 					$("#employee_id").append(new Option(item.Emp_Name, item.Emp_Id));
 				} 
-			}else if($dep_id !="" && $sub_dept_id !="%"){ 
+			}else if($dep_id !="%" && $sub_dept_id !="%"){ 
+				 
 				if(item.dept_id ==$dep_id && item.sub_dept_id==$sub_dept_id){ 
 					$("#employee_id").append(new Option(item.Emp_Name, item.Emp_Id));
 				}
+			}else{  
+				$("#employee_id").append(new Option(item.Emp_Name, item.Emp_Id));
 			}
 			
 	    }); 
