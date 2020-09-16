@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Helper;  
+use App\Helper; 
  
 class HomeController extends Controller
 {
@@ -55,4 +55,5 @@ class HomeController extends Controller
     public function activities(){ 
         return view('activities');
     }
+   
 }

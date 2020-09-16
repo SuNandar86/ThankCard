@@ -1,8 +1,7 @@
 @extends('layouts.master')
 @section('content')
    <div class="container">
-   		<ol class="breadcrumb">
-	        <li><a href="{{url('home')}}">Home</a></li>
+   		<ol class="breadcrumb"> 
 	        <li><a href="#">Activities</a></li> 
 		</ol>
 		<div class="img_banner">
@@ -29,6 +28,5 @@
 				<p>I wish all of us to be happy.</p> 
 			</div> 
 		</div>
-   </div>
-
+   </div> 
 @endsection

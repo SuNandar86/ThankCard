@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 use App\Helper;
 use App\Models\User;
+use App\Models\Employee;
+use File;  
 
 class UserController extends Controller
 {
@@ -16,99 +18,7 @@ class UserController extends Controller
         $users =$result['user'][0]; 
       
         return view('user.list',compact('users'));
-    }
-    public function add(Request $request){ 
-        $request->flash();
-        
-        if($request->method()=="POST") {
-            $data['User_Name'] =$request->user_name;
-            $data['password'] =$request->password;
-            $data['role_id'] =$request->role_id; 
-
-
-            $params['paramList']=json_encode($data);
-
-            $result=Helper::POST( \Config::get('setting.api_path').'/Users/User',$params);  
-            
-            if($result['status'][0]['statuscode']=="200"){
-               return redirect('users');
-            }elseif($result['status'][0]['statuscode']=="406"){
-                \Session::flash('user.message',"User name ".$request->user_name." is already taken!"); 
-                \Session::flash('status','alert-warning');
-            } 
-        } 
-        // get roles
-        $params['roleid']="%";
-
-        $result=Helper::GET( \Config::get('setting.api_path').'/Users/GetRole',$params);
-        $roles =$result['role'][0];  
-
-        $action ="Add";
-        $user=new User;  
-        return view('user.add',compact('user','roles','action'));
-         
-    }
-    public function edit($id){
-        // get roles
-        $params['roleid']="%";
-
-        $result=Helper::GET( \Config::get('setting.api_path').'/Users/GetRole',$params);
-        $roles =$result['role'][0];
-
-        // get users       
-        $params['userid']=$id;
-
-        $result=Helper::GET(\Config::get('setting.api_path').'/Users/GetUser',$params);
-        $users =$result['user'][0]; 
-
-        $action ="Edit"; 
-        $user=new User;
-        $user->id=$users[0]['Id'];
-        $user->name=$users[0]['User_Name'];
-        $user->password=$users[0]['Password'];
-        $user->role_id=$users[0]['Role_ID'];  
-         
-        return view('user.add',compact('user','roles','action')); 
-    }
-    public function update(Request $request,$id){
-        $request->flash();
-
-        $data['Id']  = $id;
-        $data['User_Name'] =$request->user_name;
-        $data['password'] =$request->password;
-        $data['role_id'] =$request->role_id;   
-
-        $params['paramList']=json_encode($data);
-
-        $result=Helper::PUT( \Config::get('setting.api_path').'/Users/UpdateUser',$params);
- 
-        if($result['status'][0]['statuscode']=="200"){
-            return redirect('users');              
-        }elseif($result['status'][0]['statuscode']=="406"){ 
-            \Session::flash('user.message','User named  “".$request->user_name."” is already taken!'); 
-            \Session::flash('status','alert-warning');  
-        } 
-        
-        return redirect('user/edit/'.$id);       
     } 
-    public function delete($id){
-        $data['Id']  = $id; 
-        $params['paramList']=json_encode($data);
-
-        $result=Helper::DELETE( \Config::get('setting.api_path').'/Users/DeleteUser',$params);
-    
-        $message="";
-        if($result['status'][0]['statuscode']=="200"){
-            $message ='Successfully deleted!'; 
-        }elseif($result['status'][0]['statuscode']=='404'){ 
-            $message = 'User is not found!'; 
-        }elseif($result['status'][0]['statuscode']=='304'){
-            $message = 'Unable to delete!It is already used in employee!';  
-        }
-        \Session::flash('message', $message); 
-        return  redirect('users');
-    }
-  
     public function login(Request $request){
         $message="";  
     	if($request->method()=="POST"){ 
@@ -124,7 +34,7 @@ class UserController extends Controller
 
     	   	   \Session::put('User',$user);  
    	   	  	   \Session::save(); 
-             
+            
                \Session::put('UserEmployee',isset($result['emp'][0])?$result['emp'][0]:"");
                \Session::save();  
 
@@ -149,12 +59,91 @@ class UserController extends Controller
     public function unauthoirze(){
         return view ('unauthoirze');
     }
-      public function GetUser($data){  
-        $user=new User;
-        $user->id = isset($data['Id'])?$data['Id']:"";
-        $user->name =isset ($data['User_Name'])? $data['User_Name']:"";
-        $user->password =isset ($data['password'])? $data['password']:""; 
-        $user->role_id =isset ($data['role_id'])? $data['role_id']:""; 
-        return $user; 
-    }
+     public function setting(){ 
+  
+         //get department and subdepartment list  
+        $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
+        $departments =$result['department'][0]; 
+        $subdepartments =$result['subdepartment']; 
+
+        // get roles
+        $params['roleid']="%";
+
+        $result=Helper::GET( \Config::get('setting.api_path').'/Users/GetRole',$params);
+        $roles =$result['role'][0]; 
+        
+
+        //get employee        
+        $params['empid']=Helper::EmployeeID();
+
+        $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
+        $employees =$result['employee'][0]; 
+
+        $employee = new Employee;
+        $employee->id=$employees[0]['Emp_Id'];
+        $employee->name=$employees[0]['Emp_Name'];
+        $employee->department_id=$employees[0]['Dept_Id'];
+        $employee->sub_deaprtment_id=$employees[0]['Sub_Dept_Id']; 
+        $employee->address=$employees[0]['Address'];
+        $employee->email=$employees[0]['Email'];
+        $employee->phone=$employees[0]['Phone'];
+        $employee->photo_name=$employees[0]['PhotoName'];
+
+        $action ="Edit";  
+
+        $user =new User;
+        $user->id=$employees[0]['User_Id'];
+        $user->name=$employees[0]['User_Name'];
+        $user->role_id=$employees[0]['User_Role']; 
+        $user->password=$employees[0]['User_Pass'];
+
+        return view('user.setting',compact('employee','user','departments','subdepartments','roles','action'));
+    }  
+    public function update_setting(Request $request){
+        $request->flash();
+        
+        $id=Helper::EmployeeID();
+        $data['Id'] =  $id ;
+        $data['Name'] =$request->employee_name;
+        $data['Sub_Dept_Id'] =isset($request->sub_department_id)?$request->sub_department_id:0; 
+        $data['Dept_Id'] =$request->department_id; 
+        $data['Address'] =$request->address; 
+        $data['email'] =$request->email;
+        $data['phone'] =$request->phone;
+        $data['photoname'] =$_FILES['photo']['name'] !=""?$_FILES['photo']['name']:$request->old_photo; 
+        $data['User_Name'] =$request->user_name;
+        $data['Password'] =$request->password;
+        $data['user_id']  =$request->user_id;
+        $data['Role_Id']  =$request->role_id;
+
+        $params['paramList']=json_encode($data);
+        $result=Helper::PUT( \Config::get('setting.api_path').'/Employees/UpdateEmployee',$params);
+
+        if($result['status'][0]['statuscode']=="200"){
+            if ($request->file('photo')) {  
+                // Delete existing photo  
+                $old_file_path=public_path("upload/images/".$id."/".$request->old_photo);  
+                if (file_exists($old_file_path)){
+                    File::delete($old_file_path);
+                }  
+              
+                //Upload New Photo
+                $file_upload_url ='upload/images/'.$id;
+                $profile= $request->file('photo'); 
+                $filename =  $profile->getClientOriginalName();
+                $profile->move($file_upload_url, $filename);  
+            } 
+            \Session::flash('setting.message',"Your information is successfully saved!");  
+            \Session::flash('status','alert-success');
+        }elseif($result['status'][0]['statuscode']=="406"){ 
+            \Session::flash('setting.message',"User named “".$request->user_name ."” is already taken!");
+            \Session::flash('status','alert-warning');  
+        }elseif($result['status'][0]['statuscode']=="304"){
+            \Session::flash('setting.message',"Unable to update!User does not exist!!"); 
+            \Session::flash('status','alert-danger') ; 
+        }
+        
+        return redirect('user/setting');
+    } 
+
 }

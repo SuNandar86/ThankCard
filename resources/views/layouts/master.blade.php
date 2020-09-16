@@ -48,6 +48,11 @@
                             @endif
                         </a>
                         <ul class="dropdown-menu pull-right"> 
+                            <li>
+                                <a href="{{url('user/setting')}}" class="padding-10 padding-top-0 padding-bottom-0">
+                                    <i class="fa fa-cog"></i> Setting
+                                </a>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{url('logout')}}"

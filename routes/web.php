@@ -21,7 +21,10 @@ Route::post('/login',"UserController@login");
 Route::get('logout','UserController@logout');
 Route::get('unauthoirze','UserController@unauthoirze');
 
-Route::group(['middleware' => ['checkuser']], function () {  
+Route::group(['middleware' => ['checkuser']], function () {
+    /*user*/
+    Route::get('/user/setting',"UserController@setting");
+    Route::post('/user/setting/update',"UserController@update_setting");
 	/* Department Route */	
 	Route::get('/departments',"DepartmentController@index");
 	Route::get('/department/add',"DepartmentController@department_add");
@@ -36,7 +39,7 @@ Route::group(['middleware' => ['checkuser']], function () {
 	Route::post('/subdepartment/add',"DepartmentController@sub_department_add");
 	Route::post('/subdepartment/update/{id}',"DepartmentController@sub_department_update");
 	Route::get('/subdepartment/edit/{id}',"DepartmentController@sub_department_edit");   
-    Route::get('/subdepartment/delete/{id}/{deptid}',"DepartmentController@sub_department_delete");
+    Route::get('/subdepartment/delete/{id}',"DepartmentController@sub_department_delete");
 
 	/* User Role Route */	
 	Route::get('/roles',"RoleController@index");
@@ -58,7 +61,7 @@ Route::group(['middleware' => ['checkuser']], function () {
     Route::get('/employees',"EmployeeController@index");
     Route::get('/employee/add',"EmployeeController@add");
     Route::post('/employee/add',"EmployeeController@add");
-    Route::get('/employee/edit/{id}',"EmployeeController@edit");
+    Route::get('/employee/edit/{id}',"EmployeeController@edit"); 
     Route::post('/employee/update/{id}',"EmployeeController@update");
     Route::get('/employee/delete/{id}',"EmployeeController@delete"); 
 

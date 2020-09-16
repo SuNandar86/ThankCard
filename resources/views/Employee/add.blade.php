@@ -42,6 +42,7 @@
 			       		@endif
 				       <input type="file" class="custom-file-input" id="customFile" name="photo"> 
 		    		   <label class="custom-file-label" for="customFile">Choose file</label>
+		    		   <input type="hidden" name="old_photo" value="{{$employee->photo_name}}"/>
 			     	</div>
 			    </div>
 			    <div class="form-group">
@@ -112,7 +113,7 @@
 	    			<div class="form-group">
 				      <label class="control-label col-sm-3" for="email">User Name:</label>
 				      <div class="col-sm-9">
-				        <input type="text" class="form-control" id="email" placeholder="Enter User Name" name="user_name" value="{{Request::old('user_name')!=""?Request::old('name'):$user->name}}" required="required">
+				        <input type="text" class="form-control" id="email" placeholder="Enter User Name" name="user_name" value="{{Request::old('user_name')!=""?Request::old('user_name'):$user->name}}" required="required">
 				      </div>
 				    </div>
 				    <div class="form-group">

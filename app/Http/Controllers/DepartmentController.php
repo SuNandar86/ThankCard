@@ -165,20 +165,19 @@ class DepartmentController extends Controller
         
         return redirect('subdepartment/edit/'.$id); 
     }
-    public function sub_department_delete($id,$deptid){
-        $data['Id']  = $id;
-        $data['Dept_Id']=$deptid;
+    public function sub_department_delete($id){
+        $data['Id']  = $id; 
         $params['paramList']=json_encode($data);
 
-        $result=Helper::DELETE( \Config::get('setting.api_path').'/SubDepartments/DeleteSubDept',$params);
-    
+        $result=Helper::DELETE( \Config::get('setting.api_path').'/SubDepartments/DeleteSubDept',$params); 
         $message="";
         if($result['status'][0]['statuscode']=="200"){
             $message ='Successfully deleted!'; 
         }elseif($result['status'][0]['statuscode']=='400'){ 
-            $message = 'Department is not found!'; 
+            $name=$result['subdepartment'][0]; 
+            $message = 'Sub Department named “'.$name[0]['Name'].'” is already used in Employee!'; 
         }elseif($result['status'][0]['statuscode']=='304'){
-            $message = 'Unable to delete';  
+            $message = 'Unable to delete!';  
         }
         \Session::flash('message', $message); 
         return  redirect('subdepartments');
