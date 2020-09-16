@@ -81,8 +81,8 @@
 	            	<td>{{date('m-d-Y',strtotime($thankcards[$i]['Date']))}}</td>
 	            	<td>1</td>
 	            	<td>{{$thankcards[$i]['Status']}}</td>
-	            	<td>
-	            		<a href="{{url('thankcard/inbox')}}/{{$thankcards[$i]['Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i> Reply</a>
+	            	<td> 
+	            		  <a href="{{url('thankcard/inbox')}}/{{$thankcards[$i]['Id']}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i> Reply</a> 
 	            	</td>
 	            </tr>	
 	            @endfor

@@ -1,8 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+	<ol class="breadcrumb"> 
         <li><a href="{{url('roles')}}">Roles</a></li>
         <li><a href="#">{{$action}}</a></li>
     </ol>

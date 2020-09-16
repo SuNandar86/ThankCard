@@ -1,8 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container" >
-    <ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+    <ol class="breadcrumb"> 
         <li><a href="#">Role</a></li>
     </ol>
 	<header class="gird">
@@ -26,24 +25,29 @@
         <thead>
             <tr>
                 <th>Name</th> 
+                @if(App\Helper::HasAccess('Update'))
                 <th>Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>
             @for($i=0;$i<count($roles);$i++)
             <tr>
                 <td>{{$roles[$i]['Name']}}</td> 
+                @if(App\Helper::HasAccess('Update'))
                 <td>
-                    <a href="{{url('role/edit')}}/{{$roles[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
-                    <a href="{{url('role/delete')}}/{{$roles[$i]['Id']}}" class="text-danger btn btn-default"  onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-1x fa-trash"></i></a> 
+                    <a href="{{url('role/edit')}}/{{$roles[$i]['Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a> 
                 </td>
+                @endif
             </tr>
             @endfor                 
         </tbody>
         <tfoot>
             <tr>
                 <th>Name</th> 
-                <th>Action</th>                 
+                @if(App\Helper::HasAccess('Update'))
+                <th>Action</th> 
+                @endif                
             </tr>
         </tfoot>
     </table>

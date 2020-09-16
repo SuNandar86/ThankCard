@@ -19,6 +19,15 @@ class Helper
         $user =\Session::get('User');
         return $user->name;
     }
+    public static function HasAccess($method){
+       $action= Self::AUTHORIZE();
+       $arr_action=explode(",", $action);  
+
+       if(in_array($method,$arr_action)){
+          return true;
+       }
+       return false;
+    }
     public static function GET($url,$data){
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         if(count($data)>0){ 
@@ -94,10 +103,10 @@ class Helper
      	$authorities= \Session::get('Authorities'); 
      	for($i=0;$i<count($authorities);$i++){ 
      		if($authorities[$i]['Action']==$current_route){ 
-     		 	return true;
+     		 	return $authorities[$i]['Menu_Role_Action'];
      		} 
      	}
      	return false;
-     }
+    }
   }
-?>       
+?>        

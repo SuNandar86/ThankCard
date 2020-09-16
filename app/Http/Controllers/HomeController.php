@@ -31,7 +31,8 @@ class HomeController extends Controller
 
         $result=Helper::GET(\Config::get('setting.api_path').'/ThankCards/ThankCardsFemp',$params);
        
-        $thankcards=$result['thankcard'][0];
+        $thankcards=$result['thankcard'][0]; 
+        
         
         //get Employee list
         $data['emp_id']="%";
