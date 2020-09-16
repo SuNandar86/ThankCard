@@ -14,7 +14,7 @@ class EmployeeController extends Controller
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
         $employees =$result['employee'][0]; 
-   
+        
     	return view('employee.list',compact('employees'));
     }
     public function add(Request $request){

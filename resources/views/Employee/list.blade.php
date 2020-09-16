@@ -27,9 +27,9 @@
             <tr>
                 <th>Photo</th>
                 <th>Name</th>
+                <th>User Name</th>
                 <th>Department </th> 
                 <th>Subdepartment</th> 
-                <th>User Name</th> 
                 <th>Address</th> 
                 <th>Created At</th> 
                 <th>Action</th>
@@ -46,9 +46,9 @@
                         @endif
                     </td> 
                     <td>{{ $employees[$i]['Emp_Name']}}</td>
-                    <td>{{ $employees[$i]['Dept_Name']}}</td>
-                    <td>{{ $employees[$i]['Sub_Dept_Name']}}</td>
                     <td>{{ $employees[$i]['User_Name']}}</td>
+                    <td>{{ $employees[$i]['Dept_Name']}}</td>
+                    <td>{{ $employees[$i]['Sub_Dept_Name']}}</td> 
                     <td>{{ $employees[$i]['Address']}}</td> 
                     <td>{{date('d-m-Y',strtotime($employees[$i]['Created_Date']))}}</td>
                     <td>
@@ -64,9 +64,9 @@
             <tr>
                 <th>Photo</th>
                 <th>Name</th>
+                <th>User Name</th> 
                 <th>Department </th> 
                 <th>Subdepartment</th> 
-                <th>User Name</th> 
                 <th>Address</th>                 
                 <th>Created At</th> 
                 <th>Action</th>                

@@ -84,7 +84,7 @@ header.gird>.widget-icon {
 }
 /* Datatable Style */
 .dataTables_wrapper{
-	/*border:1px solid #CCC!important;*/
+	border:1px solid #CCC!important;
 	padding-top:20px;
 }
 .dataTables_wrapper  .paging_simple_numbers{
@@ -106,6 +106,9 @@ header.gird>.widget-icon {
 }
 .table-add a{
 	color:#FF5200;
+}
+#dtThankCard_wrapper{
+    border:none !important;
 }
 /*Form Container Style*/
 .form-container{

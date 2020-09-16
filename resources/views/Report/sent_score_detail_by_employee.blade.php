@@ -27,8 +27,7 @@
 				<input type="hidden" name="dept_id" value="{{$data['dept_id']}}"/>
 				<input type="hidden" name="sub_dept_id" value="{{$data['sub_dept_id']}}"/>
 				<input type="hidden" name="from_emp_id" value="{{$data['from_emp_id']}}"/>
-				<input type="hidden" name="to_emp_id" value="{{$data['to_emp_id']}}"/>
-				<input type="hidden" name="from_date" value="{{$data['from_date']}}"/>
+				<input type="hidden" name="to_emp_id" value="{{$data['to_emp_id']}}"/
 				<input type="hidden" name="to_date" value="{{$data['to_date']}}"/>
 			</div> 
 		</form>

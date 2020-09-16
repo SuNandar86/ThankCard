@@ -98,7 +98,9 @@
             $('#dtBasicExample').DataTable({
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
-                "searching": true
+                "searching": true, 
+                "order": [],
+                "ordering":true
             });
             $('.dataTables_length').addClass('bs-select');
             });

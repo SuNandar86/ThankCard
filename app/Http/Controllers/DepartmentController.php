@@ -13,8 +13,7 @@ class DepartmentController extends Controller
         $params['departmentId']="%"; 
 
         $result=Helper::GET( \Config::get('setting.api_path').'/Departments/GetDepart',$params); 
-        $departments =$result['department'][0]; 
-
+        $departments =$result['department'][0];  
        return view('department.list',compact('departments'));
     }
     public function department_add(Request $request){ 
@@ -160,7 +159,7 @@ class DepartmentController extends Controller
             return redirect('subdepartments');
       
         }elseif($result['status'][0]['statuscode']=="406"){ 
-            \Session::flash('subdept.message',"Department named “".$request->name ."” is already taken!");
+            \Session::flash('subdept.message',"Sub Department named “".$request->name ."” is already taken!");
             \Session::flash('status',"alert-warning");  
         } 
         

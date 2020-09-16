@@ -2,7 +2,7 @@
 @section('content')
 <div class="container" >
     <ol class="breadcrumb">
-        <li><a href="{{url('home')}}">Home</a></li>
+        <li><a href="{{url('departments')}}">Departments</a></li>
         <li><a href="#">Sub Departments</a></li>
     </ol>
 	<header class="gird">
@@ -25,16 +25,16 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Parent Department</th> 
+                <th>Department</th> 
+                <th>Sub Department Name</th> 
                 <th>Action</th> 
             </tr>
         </thead>
         <tbody>
             @for($i=0;$i<count($subdepartments);$i++)
             <tr>
-                <td>{{$subdepartments[$i]['Sub_Dept_Name']}}</td>
-                <td>{{$subdepartments[$i]['Dept_Name']}}</td> 
+                <td>{{$subdepartments[$i]['Dept_Name']}}</td>
+                <td>{{$subdepartments[$i]['Sub_Dept_Name']}}</td> 
                 <td>
                     <a href="{{url('subdepartment/edit')}}/{{$subdepartments[$i]['Sub_Dept_Id']}}" data-href="#"  class="text-danger btn btn-default"><i class="fa fa-1x fa-edit"></i></a>
                     <a href="{{url('subdepartment/delete')}}/{{$subdepartments[$i]['Sub_Dept_Id']}}/{{$subdepartments[$i]['Dept_Id']}}" class="text-danger btn btn-default"
@@ -47,8 +47,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Parent Department</th> 
+                <th>Department</th> 
+                <th>Sub Department Name</th> 
                 <th>Action</th>                 
             </tr>
         </tfoot>
