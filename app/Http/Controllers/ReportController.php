@@ -121,10 +121,11 @@ class ReportController extends Controller
 
         //get sent thank card score list by employee
         $params['paramList']=json_encode($data); 
+        
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetSentThankCardTotalByEmployee', $params);
         $thankcards=$result['thankcard'][0];  
-
+       
     	//get department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
         $departments =$result['department'][0]; 

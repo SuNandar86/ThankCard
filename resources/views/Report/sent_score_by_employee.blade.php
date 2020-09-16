@@ -83,8 +83,8 @@
         	@for($i=0;$i<count($thankcards);$i++)
         	<tr>
 	            <td>{{$i+1}}</td>  
-	            <td>{{ $thankcards[$i]['Em_Name']}} </td>
-	            <td>{{ $thankcards[$i]['Dep_Name']}}</td>
+	            <td>{{ $thankcards[$i]['Emp_Name']}} </td>
+	            <td>{{ $thankcards[$i]['Dept_Name']}}</td>
 	            <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
 	            <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}} </td>
 	            <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
