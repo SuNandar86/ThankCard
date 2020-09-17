@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Helper; 
 use App\Models\Employee;
 use App\Models\User;
+use File;
 
 class HomeController extends Controller
 {

@@ -25,6 +25,7 @@ Route::group(['middleware' => ['checkuser']], function () {
     /*user*/
     Route::get('/user/setting',"HomeController@setting");
     Route::post('/user/setting/update',"HomeController@update_setting");
+    
 	/* Department Route */	
 	Route::get('/departments',"DepartmentController@index");
 	Route::get('/department/add',"DepartmentController@department_add");
