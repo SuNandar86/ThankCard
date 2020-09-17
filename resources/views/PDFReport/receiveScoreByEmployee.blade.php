@@ -7,12 +7,18 @@
        border:0;
     }
     .pdf_data td{
-      text-align:  center;
+      text-align:  left;
+    }
+    .pdf_data th{
+       text-align:  left;
+    }
+    .center{
+      text-align: center;
     }
  </style>
 </head>
 <body>
-  <h3 style="text-align: center;">ThankCard Receive Score By Employee</h3>
+  <h3 style="text-align: center;">Total Receive Card By Employee</h3>
   <div>
         <table class="pdf_data">
 	       <thead>
@@ -35,7 +41,7 @@
                 <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
                 <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}}</td>
                 <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
-                <td>{{ $thankcards[$i]['CountResult']}}</td>  
+                <td class="center">{{ $thankcards[$i]['CountResult']}}</td>  
               </tr>
             @endfor
         </tbody>

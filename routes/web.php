@@ -105,4 +105,4 @@ Route::group(['middleware' => ['checkuser']], function () {
 
     //Activities
     Route::get('activities','HomeController@activities');
-});
+}); 

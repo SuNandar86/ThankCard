@@ -11,10 +11,10 @@
 			<div class="form-group">
 				<div class="col-sm-offset-10 col-sm-2">
 					<button type="submit" class="btn btn-default btn-search" id="">
-					  <i class="fa fa-eye" aria-hidden="true"></i> View
+					  <i class="fa fa-eye" aria-hidden="true"></i> 検索
 				    </button> 
 					<button type="button" class="btn btn-default btn-search" id="btnPrint">
-						<i class="fa fa-download" aria-hidden="true"></i> Print
+						<i class="fa fa-download" aria-hidden="true"></i> プリント
 					</button>
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 					value="{{Request::old('to_date')}}" >
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label" for="department_id">Department:</label>
+					<label class="control-label" for="department_id">部署:</label>
 			      	<select name="department_id"  class="form-control"  id="department_id">	
 		      			@php
 				        	$department_id=Request::old('department_id');
@@ -46,7 +46,7 @@
 				    </select>
 				</div>
 				<div class="col-sm-3">
-					<label class="control-label">Sub Department:</label> 
+					<label class="control-label">課部署:</label> 
 			        <select name="sub_department_id"  class="form-control" id="sub_department_id">
 			        	<option value="%">Select Sub Department</option>
 			        </select>
@@ -58,10 +58,10 @@
 					</select>
 				</div> 
 				<div class="col-sm-1">
-					<label class="control-label" >Order By:</label> 
+					<label class="control-label" >並び順:</label> 
 			        <select name="order" class="form-control">
-			        	<option value="asc">ASC</option>
-			        	<option value="desc">DESC</option>
+			        	<option value="asc">降順</option>
+			        	<option value="desc">昇順</option>
 			        </select>
 				</div> 
 			</div>  
@@ -69,14 +69,14 @@
 		 <table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Sub Department </th>  
+                <th>番号</th>
+                <th>氏名</th>
+                <th>部署</th>
+                <th>課部署  </th>  
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th>
-                <th>Action</th>  
+                <th>合計</th>
+                <th>操作</th>  
             </tr>
         </thead>
         <tbody>
@@ -100,14 +100,14 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>No</th>
-                <th>Name</th> 
-                <th>Department</th>
-                <th>Sub Department </th> 
+                <th>番号</th>
+                <th>氏名</th>
+                <th>部署</th>
+                <th>課部署  </th>  
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th> 
-                <th>Action</th>               
+                <th>合計</th>
+                <th>操作</th>              
             </tr>
         </tfoot>
     </table>

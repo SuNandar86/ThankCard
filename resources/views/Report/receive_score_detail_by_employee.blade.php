@@ -11,16 +11,16 @@
 			<div class="form-group"> 
 				<div class="col-sm-offset-8  col-sm-4">
 					<div class="col-sm-offset-6 col-md-3" style="margin-top: 19px;">
-						<label class="control-label" for="sub_department_id">Order By:</label> 
+						<label class="control-label" for="sub_department_id">並び順:</label> 
 				        <select name="order" class="form-control" style="width: 80px;">
-				        	<option value="asc">ASC</option>
-				        	<option value="desc">DESC</option>
+				        	<option value="asc">降順</option>
+				        	<option value="desc">昇順</option>
 				        </select>
 				    </div>
 				    <div class="col-md-2">
 				    	<label>&nbsp;</label> 
 						<button type="button" class="btn btn-default btn-search" id="btnPrint">
-							<i class="fa fa-download" aria-hidden="true"></i> Print
+							<i class="fa fa-download" aria-hidden="true"></i> プリント
 						</button>
 				    </div>
 				</div> 
@@ -35,12 +35,12 @@
 		<table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
 			<thead>
             <tr>
-                <th>No</th>
+                <th>番号</th>
                 <th>From</th>
-                <th>Department</th>
+                <th>部署</th>
                 <th>To</th> 
-                <th>Date</th>                
-                <th>Total Score</th> 
+                <th>日付</th>                
+                <th>合計</th> 
             </tr>
 	        </thead>
 	        <tbody>
@@ -57,12 +57,12 @@
 	        </tbody>
 	        <tfoot>
 	            <tr>
-	                <th>No</th>
+	                <th>番号</th>
 	                <th>From</th>
-	                <th>Department</th>
-	                <th>To</th>  
-	                <th>Date</th>
-	                <th>Total Score</th>                
+	                <th>部署</th>
+	                <th>To</th> 
+	                <th>日付</th>                
+	                <th>合計</th>               
 	            </tr>
 	        </tfoot> 
 		</table>

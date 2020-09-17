@@ -19,8 +19,8 @@ class ReportController extends Controller
         }else{
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
-	        $data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+	        $data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
         	$data['order'] ='desc';
         }
 
@@ -52,8 +52,8 @@ class ReportController extends Controller
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
             $data['to_emp_id']="%";
-	        $data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+	        $data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
         	$data['order'] ='desc';
         } 
 
@@ -114,8 +114,8 @@ class ReportController extends Controller
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
             $data['from_emp_id'] ='%';
-	        $data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+	        $data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
         	$data['order'] ='desc';
         }
 
@@ -124,7 +124,7 @@ class ReportController extends Controller
         
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetSentThankCardTotalByEmployee', $params);
-        $thankcards=$result['thankcard'][0];  
+        $thankcards=$result['thankcard'][0];
        
     	//get department and subdepartment list
         $result=Helper::GET( \Config::get('setting.api_path').'/Common/GetCommonData',[]); 
@@ -146,7 +146,7 @@ class ReportController extends Controller
     														'departments','subdepartments'));
     }
     public function sentScoreByEmployeeDetail($from_emp_id,$department,$subdepartment,$from_date,$to_date){ 
-    										 
+    	                                    
     	$data['dept_id'] =$department;
     	$data['sub_dept_id']  =$subdepartment;
     	$data['from_emp_id'] =$from_emp_id;
@@ -173,8 +173,8 @@ class ReportController extends Controller
         }else{
         	$data['dept_id'] ='%';
         	$data['sub_dept_id']  = '%';
-	        $data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+	        $data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
         	$data['order'] ='desc';
         }
 

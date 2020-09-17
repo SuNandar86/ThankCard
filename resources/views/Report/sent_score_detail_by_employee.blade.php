@@ -11,35 +11,37 @@
 			<div class="form-group"> 
 				<div class="col-sm-offset-8  col-sm-4">
 					<div class="col-sm-offset-6 col-md-3" style="margin-top: 19px;">
-						<label class="control-label" for="sub_department_id">Order By:</label> 
+						<label class="control-label" for="sub_department_id">並び順:</label> 
 				        <select name="order" class="form-control" style="width: 80px;">
-				        	<option value="asc">ASC</option>
-				        	<option value="desc">DESC</option>
+				        	<option value="asc">降順</option>
+				        	<option value="desc">昇順</option>
 				        </select>
 				    </div>
 				    <div class="col-md-2">
 				    	<label>&nbsp;</label> 
 						<button type="button" class="btn btn-default btn-search" id="btnPrint">
-							<i class="fa fa-download" aria-hidden="true"></i> Print
+							<i class="fa fa-download" aria-hidden="true"></i> プリント
 						</button>
 				    </div>
 				</div> 
 				<input type="hidden" name="dept_id" value="{{$data['dept_id']}}"/>
 				<input type="hidden" name="sub_dept_id" value="{{$data['sub_dept_id']}}"/>
 				<input type="hidden" name="from_emp_id" value="{{$data['from_emp_id']}}"/>
-				<input type="hidden" name="to_emp_id" value="{{$data['to_emp_id']}}"/
+				<input type="hidden" name="to_emp_id" value="{{$data['to_emp_id']}}"/>
+				<input type="hidden" name="from_emp_id" value="{{$data['from_emp_id']}}"/>
+				<input type="hidden" name="from_date" value="{{$data['from_date']}}"/>
 				<input type="hidden" name="to_date" value="{{$data['to_date']}}"/>
 			</div> 
 		</form>
 		<table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
 			<thead>
             <tr>
-                <th>No</th>
+                <th>番号</th>
                 <th>From</th>
-                <th>Department</th>
+                <th>部署</th>
                 <th>To</th> 
-                <th>Date</th>                
-                <th>Total Score</th> 
+                <th>日付</th>                
+                <th>合計</th> 
             </tr>
 	        </thead>
 	        <tbody>
@@ -56,12 +58,12 @@
 	        </tbody>
 	        <tfoot>
 	            <tr>
-	                <th>No</th>
+	                <th>番号</th>
 	                <th>From</th>
-	                <th>Department</th>
-	                <th>To</th>  
-	                <th>Date</th>
-	                <th>Total Score</th>                
+	                <th>部署</th>
+	                <th>To</th> 
+	                <th>日付</th>                
+	                <th>合計</th>                
 	            </tr>
 	        </tfoot> 
 		</table>

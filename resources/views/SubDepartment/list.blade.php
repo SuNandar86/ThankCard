@@ -7,7 +7,7 @@
     </ol>
 	<header class="gird">
         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-        <h2>Sub Department List</h2> 
+        <h2>課部署一覧</h2> 
          @if(App\Helper::HasAccess('Create'))
         <span class="table-add mb-3 mr-2">
     		<a href="{{url('subdepartment/add')}}" title="Dashboard">
@@ -27,10 +27,10 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Department</th> 
-                <th>Sub Department Name</th> 
+                <th>部署</th> 
+                <th>課部署氏名</th> 
                 @if(App\Helper::HasAccess('Update') || App\Helper::HasAccess('Delete'))
-                <th>Action</th>
+                <th>操作</th>
                 @endif 
             </tr>
         </thead>
@@ -60,10 +60,10 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Department</th> 
-                <th>Sub Department Name</th>
-                @if(App\Helper::HasAccess('Update') || App\Helper::HasAccess('Delete')) 
-                <th>Action</th>  
+                <th>部署</th> 
+                <th>課部署氏名</th> 
+                @if(App\Helper::HasAccess('Update') || App\Helper::HasAccess('Delete'))
+                <th>操作</th>
                 @endif               
             </tr>
         </tfoot>

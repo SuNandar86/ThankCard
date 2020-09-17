@@ -6,7 +6,7 @@
     </ol>
 	<header class="gird">
         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-        <h2>Department List</h2> 
+        <h2>部署一覧</h2> 
         @if(App\Helper::HasAccess('Create'))
         <span class="table-add mb-3 mr-2">
     		<a href="{{url('department/add')}}" title="Dashboard">
@@ -26,9 +26,9 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th> 
+                <th>氏名</th> 
                 @if(App\Helper::HasAccess('Update') || App\Helper::HasAccess('Delete'))
-                 <th>Action</th> 
+                 <th>操作</th> 
                 @endif
             </tr>
         </thead>
@@ -53,9 +53,9 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th> 
+                <th>氏名</th> 
                 @if(App\Helper::HasAccess('Update') || App\Helper::HasAccess('Delete'))
-                 <th>Action</th> 
+                 <th>操作</th> 
                 @endif                  
             </tr>
         </tfoot>

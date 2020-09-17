@@ -81,7 +81,7 @@
 					            		 </button>
 							        </div>
 						    	@else
-						    		<textarea class="form-control reply_text" name="reply_message" rows="5" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
+						    		<textarea class="form-control reply_text" name="reply_message" rows="3" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
 						    		 <button type="submit" class="btn btn-default  reply"  
 						    		     >
 				            			    <i class="fa fa-reply" aria-hidden="true"></i> Reply

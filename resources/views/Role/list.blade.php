@@ -6,12 +6,7 @@
     </ol>
 	<header class="gird">
         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-        <h2>Role List</h2> 
-        <!-- <span class="table-add mb-3 mr-2">
-    		<a href="{{url('role/add')}}" title="Dashboard">
-    			<i class="fa fa-lg fa fa-plus"></i> 
-            </a>
-    	</span> -->
+        <h2>権限一覧</h2>  
     </header>
     @if(Session::has('message')!="")
     <div class="col-sm-offset-3 col-sm-6"> 
@@ -24,9 +19,9 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th> 
+                <th>氏名</th> 
                 @if(App\Helper::HasAccess('Update'))
-                <th>Action</th>
+                <th>操作</th>
                 @endif
             </tr>
         </thead>
@@ -44,9 +39,9 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th> 
+               <th>氏名</th> 
                 @if(App\Helper::HasAccess('Update'))
-                <th>Action</th> 
+                <th>操作</th>
                 @endif                
             </tr>
         </tfoot>

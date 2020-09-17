@@ -7,7 +7,11 @@
     </ol>
     <header class="gird">
         <span class="widget-icon"> <i class="fa fa-plus"></i> </span>
-        <h2>Department {{$action}}</h2> 
+        @if(!$department->id)
+        <h2>部署追加</h2> 
+        @else
+        <h2>部署修正</h2>
+        @endif
     </header> 
     <div class="form-container">
     	@php
@@ -30,7 +34,7 @@
             </div>
             @endif    
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="name">Name:</label>
+		      <label class="control-label col-sm-3" for="name">氏名:</label>
 		      <div class="col-sm-6">
 		        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="{{Request::old('name')!=""?Request::old('name'):$department->name}}">
 		      </div>
@@ -38,9 +42,9 @@
 		    <div class="form-group">        
 		        <div class="col-sm-offset-8 col-sm-2">
     		      	@if($department->id)
-    		        <button type="submit" class="btn btn-default">Update</button>
+    		        <button type="submit" class="btn btn-default">追加</button>
     		        @else
-    		        <button type="submit" class="btn btn-default">Add</button>
+    		        <button type="submit" class="btn btn-default">追加</button>
     		        @endif
 		        </div>
 		    </div>

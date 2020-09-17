@@ -7,7 +7,11 @@
     </ol>
     <header class="gird">
         <span class="widget-icon"> <i class="fa fa-plus"></i> </span>
-        <h2>Sub Department {{$action}}</h2> 
+        @if(!$subdepartment->id)
+        <h2>課部署追加</h2> 
+        @else
+         <h2>課部署修正</h2> 
+        @endif
     </header> 
     <div class="form-container">
     	@php
@@ -30,7 +34,7 @@
             </div>
             @endif 
              <div class="form-group">
-                <label class="control-label col-sm-3" for="user_id">Departments:</label>
+                <label class="control-label col-sm-3" for="user_id">部署 :</label>
                 <div class="col-sm-6">          
                     <select name="department_id"  class="form-control"  required="required">
                         <option value="">Select Department</option>
@@ -49,7 +53,7 @@
                 </div>
             </div>  
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="name">Name:</label>
+		      <label class="control-label col-sm-3" for="name">氏名:</label>
 		      <div class="col-sm-6">
 		        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="{{Request::old('name')!=""?Request::old('name'):$subdepartment->name}}" required="required">
 		      </div>
@@ -57,9 +61,9 @@
 		    <div class="form-group">        
 		      	<div class="col-sm-offset-8 col-sm-2">
     		      	@if($subdepartment->id)
-    		        <button type="submit" class="btn btn-default">Update</button>
+    		        <button type="submit" class="btn btn-default">追加</button>
     		        @else
-    		        <button type="submit" class="btn btn-default">Add</button>
+    		        <button type="submit" class="btn btn-default">追加</button>
     		        @endif
 		        </div>
 		    </div>

@@ -49,7 +49,7 @@ class EmployeeController extends Controller
                 return redirect('employees');
 
             }elseif($result['status'][0]['statuscode']=='406'){
-                \Session::flash('employee.message','Employee named “'
+                \Session::flash('employee.message','User named “'
                                 .$request->user_name.'” is already taken!'); 
                 \Session::flash('status',"alert-warning"); 
             } 
@@ -147,7 +147,7 @@ class EmployeeController extends Controller
             } 
             return redirect('employees');
         }elseif($result['status'][0]['statuscode']=="406"){ 
-            \Session::flash('employee.message',"Employee named “".$request->employee_name ."” is already taken!");
+            \Session::flash('employee.message',"User named “".$request->user_name ."” is already taken!");
             \Session::flash('status','alert-warning');  
         }elseif($result['status'][0]['statuscode']=="304"){
             \Session::flash('employee.message',"Unable to update!Employee does not exist!!"); 

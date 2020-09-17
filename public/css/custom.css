@@ -34,6 +34,11 @@
 }
 .btn{
     margin-top:20px;
+    width: 79px !important;
+}
+.fa-mobile,
+.fa-map-marker{
+    font-size: 17px !important;
 }
 fieldset {
     font-family: sans-serif;

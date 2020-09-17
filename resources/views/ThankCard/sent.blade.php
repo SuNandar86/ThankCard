@@ -14,7 +14,7 @@
     			{{ csrf_field() }}
 	    		<div class="form-group">
 	    			<div class="col-sm-2">
-						<label class="control-label" for="user_id">Department:</label>
+						<label class="control-label" for="user_id">部署:</label>
 				      	<select name="department_id"  class="form-control"  id="department_id">	
 			      			@php
 					        	$department_id=Request::old('department_id');
@@ -30,13 +30,13 @@
 					    </select>
 					</div>
 					<div class="col-sm-2">
-						<label class="control-label" for="sub_department_id">Sub Department:</label>
+						<label class="control-label" for="sub_department_id">課部署:</label>
 				        <select name="sub_department_id"  class="form-control" id="sub_department_id">
 				        	<option value="%">All</option>
 				        </select>
 					</div>
 	    			<div class="col-sm-2">
-		    			<label for="employee_id">Select Employee:</label>
+		    			<label for="employee_id">社員選択:</label>
 						<select name="employee_id"  class="form-control" id="employee_id" >
 				        	<option value="%">All</option> 
 						</select>
@@ -53,8 +53,8 @@
 					</div>
 					<div class="col-sm-2">
 						<label>&nbsp;</label>
-						<button type="submit" class="btn btn-default btn-search">Search</button>
-						<a  href="{{url('thankcard/employees')}}" class="btn btn-default btn-search" style="width: 80px;">Compose</a>
+						<button type="submit" class="btn btn-default btn-search">検索</button>
+						<a  href="{{url('thankcard/employees')}}" class="btn btn-default btn-search" style="width: 80px;">作成</a>
 					</div>
 				</div>	
     		</form>	
@@ -62,14 +62,14 @@
 	    <table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
 		        <thead>
 		            <tr>
-		            	<th>No</th>
-		                <th>Name</th>
-		                <th>Department</th>
-		                <th>Sub Department</th>
-		                <th>Date</th>
-		                <th>Card</th>
-		                <th>Status</th> 
-		                <th>Action</th> 
+		            	<th>番号</th>
+		                <th>氏名</th>
+		                <th>部署</th>
+		                <th>課部署</th>
+		                <th>日付</th>
+		                <th>カード</th>
+		                <th>受信状況</th> 
+		                <th>操作</th> 
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -90,14 +90,14 @@
 		        </tbody>
 		        <tfoot>
 		            <tr>
-		                <th>No</th>
-		                <th>Name</th>
-		                <th>Department</th>
-		                <th>Sub Department</th>
-		                <th>Date</th>
-		                <th>Card</th>
-		                <th>Status</th> 
-		                <th>Action</th>                  
+		                <th>番号</th>
+		                <th>氏名</th>
+		                <th>部署</th>
+		                <th>課部署</th>
+		                <th>日付</th>
+		                <th>カード</th>
+		                <th>受信状況</th> 
+		                <th>操作</th>                   
 		            </tr>
 		        </tfoot>
 		    </table>

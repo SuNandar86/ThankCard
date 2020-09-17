@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Helper; 
 use App\Models\Employee;
 use App\Models\User;
+use Hash;
 use File;
 
 class HomeController extends Controller
 {
-    public function index(Request $request){ 
+    public function index(Request $request){  
     	 $request->flash();
  
         //get thank card list
@@ -24,8 +25,8 @@ class HomeController extends Controller
         }else{
         	$data['from_emp_id'] ="%";
         	$data['to_emp_id'] =Helper::EmployeeID();
-        	$data['from_date'] =date('Y-m-d H:i:s');
-        	$data['to_date']   = date('Y-m-d H:i:s');
+        	$data['from_date'] =date('Y-m-d');
+        	$data['to_date']   = date('Y-m-d');
             $data['from_dept_id'] ='%';
             $data['from_sub_dept_id'] ='%';
         } 
@@ -76,7 +77,7 @@ class HomeController extends Controller
         $params['empid']=Helper::EmployeeID();
 
         $result=Helper::GET(\Config::get('setting.api_path').'/Employees/GetEmployee',$params);
-        $employees =$result['employee'][0]; 
+        $employees =$result['employee'][0];  
 
         $employee = new Employee;
         $employee->id=$employees[0]['Emp_Id'];
@@ -95,7 +96,7 @@ class HomeController extends Controller
         $user->name=$employees[0]['User_Name'];
         $user->role_id=$employees[0]['User_Role']; 
         $user->password=$employees[0]['User_Pass'];
-
+ 
         return view('user.setting',compact('employee','user','departments','subdepartments','roles','action'));
     }  
     public function update_setting(Request $request){

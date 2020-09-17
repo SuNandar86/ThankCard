@@ -98,15 +98,53 @@ class Helper
      	$str_path=get_class(\Request::route()->getController()); 
         $arr_path=(explode("\\",$str_path));
         $current_route=$arr_path[3];
- 
+        
+        $str_action= \Request::route()->getActionName();
+        $current_action=(explode("@",$str_action));
 
      	$authorities= \Session::get('Authorities'); 
      	for($i=0;$i<count($authorities);$i++){ 
-     		if($authorities[$i]['Action']==$current_route){ 
-     		 	return $authorities[$i]['Menu_Role_Action'];
+     		if($authorities[$i]['Action']==$current_route){  
+                $arr_menu_role_action=explode(",", $authorities[$i]['Menu_Role_Action']);  
+
+                $method="";
+                switch ($current_action[1]) {
+                  case "add":
+                    $method="Create";
+                    break;
+                  case "edit":
+                    $method="Update";
+                    break;
+                  case "delete":
+                    $method= "Delete";
+                    break;
+                  case "department_add":
+                    $method="Create";
+                    break;
+                  case "department_edit":
+                    $method="Update";
+                    break;
+                  case "department_delete":
+                    $method="Delete";
+                    break;
+                  case "sub_department_add":
+                    $method ="Create";
+                    break;
+                  case "sub_department_edit":
+                    $method ="Update";
+                    break;
+                  case "sub_department_delete":
+                    $method ="Delete";
+                    default:
+                }    
+
+                if($method !="" && !in_array($method,$arr_menu_role_action)){
+                    return false;
+                }
+                return $authorities[$i]['Menu_Role_Action'];
      		} 
      	}
      	return false;
     }
   }
-?>        
+?>
