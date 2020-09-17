@@ -17,11 +17,11 @@
 					<div class="col-md-6" id="reply_content">
 						<div class="form-group">
 					    	<label class="control-label col-sm-offset-9 col-sm-3">
-					    		<strong>Date: {{date('d-m-Y',strtotime($thankcard[0]['SendDate']))}}</strong>
+					    		<strong>日付: {{date('d-m-Y',strtotime($thankcard[0]['SendDate']))}}</strong>
 					    	</label> 
 						</div>
 						<div class="form-group">
-							<label class="control-label col-sm-2 left" >Title:</label>
+							<label class="control-label col-sm-2 left" >件名:</label>
 							<div class="col-sm-10">
 					    		<input type="text" value="{{$thankcard[0]['Title']}}" class="form-control" disabled name="title"> 
 					    	</div> 
@@ -39,13 +39,13 @@
 					    	</div> 
 					    </div>
 				    	<div class="form-group">
-					    	<label class="control-label col-sm-2" >Description:</label>
+					    	<label class="control-label col-sm-2 left" >内容:</label>
 					    	<div class="col-sm-10">
 					    		<textarea id="w3review" class="form-control" rows="3" disabled name="send_text">{{$thankcard[0]['SendText']}}</textarea> 
 					    	</div>
 			    		</div>
 			    		<div class="form-group">
-					    	<label class="control-label col-sm-2" >Reply:</label>
+					    	<label class="control-label col-sm-2 left" > 返信:</label>
 					    	<div class="col-sm-10"> 
 				    			<div id="reply_message">
 						    		<textarea class="form-control" name="reply_message" rows="3" disabled>{{$thankcard[0]['ReplyText']}}</textarea>  

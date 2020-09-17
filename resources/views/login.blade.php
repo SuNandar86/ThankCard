@@ -17,7 +17,7 @@
 				<form class="login100-form validate-form" action="{{url('login')}}" method="post">
 					{{ csrf_field() }} 
 					<span class="login100-form-title p-b-26">
-						Login
+						ログイン
 					</span> 
 					 
 					@if($message)
@@ -29,7 +29,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						<input class="input100" type="text" name="user_name" required="required">
-						<span class="focus-input100" data-placeholder="User Name"></span>
+						<span class="focus-input100" data-placeholder="ユーザー名"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -37,14 +37,14 @@
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="password" >
-						<span class="focus-input100" data-placeholder="Password" required="required"></span>
+						<span class="focus-input100" data-placeholder="パスワード" required="required"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div> 
 							<button class="login100-form-btn" type="submit">
-								Login
+								ログイン
 							</button>
 
 						</div>

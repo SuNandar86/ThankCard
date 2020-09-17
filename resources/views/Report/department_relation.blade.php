@@ -58,7 +58,7 @@
 			        	<option value="desc">昇順</option>
 			        </select>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<label>&nbsp;</label>
 						<button type="submit" class="btn btn-default btn-search" id="">
 						  <i class="fa fa-eye" aria-hidden="true"></i> 検索
@@ -87,8 +87,8 @@
                     <td>{{$i+1}}</td>  
                     <td>{{ $thankcards[$i]['F_Dept_Name']}}</td>
                     <td>{{ $thankcards[$i]['T_Dept_Name']}}</td> 
-                    <td>{{ $thankcards[$i]['f_date']}}</td>
-                    <td>{{ $thankcards[$i]['t_date']}}</td>
+                    <td>{{ date('d-m-Y',strtotime($thankcards[$i]['f_date']))}}</td>
+                    <td>{{ date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
                     <td>{{ $thankcards[$i]['CountResult']}}</td> 
                 </tr> 
             @endfor

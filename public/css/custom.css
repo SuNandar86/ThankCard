@@ -40,6 +40,12 @@
 .fa-map-marker{
     font-size: 17px !important;
 }
+#btnPrint{
+    width: 90px !important;
+}
+.btn-search{
+    width: 75px !important;
+}
 fieldset {
     font-family: sans-serif;
     border: 1px solid #ddd; 

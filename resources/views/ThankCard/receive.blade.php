@@ -20,7 +20,7 @@
         	<div class="row">
         		<div class="col-sm-offset-10 col-sm-2 print_card">
         			<button type="button" class="btn btn-default right" id="btnPrint">
-				        <i class="fa fa-download" aria-hidden="true"></i> Print
+				        <i class="fa fa-download" aria-hidden="true"></i> プリント
 				   </button> 
         		</div>
         	</div>
@@ -38,7 +38,7 @@
 					    	<input type="hidden" name="send_date" value="{{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}"/>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-sm-2 left" >Title:</label>
+							<label class="control-label col-sm-2 left" >件名:</label>
 							<div class="col-sm-10">
 					    		<input type="text" value="{{$thankcards[0]['Title']}}" class="form-control" disabled name="title"> 
 					    	</div> 
@@ -56,35 +56,35 @@
 					    	</div> 
 					    </div>
 				    	<div class="form-group">
-					    	<label class="control-label col-sm-2" >Description:</label>
+					    	<label class="control-label col-sm-2 left" >内容:</label>
 					    	<div class="col-sm-10">
 					    		<textarea id="w3review" class="form-control" rows="3" disabled name="send_text">{{$thankcards[0]['SendText']}}</textarea> 
 					    	</div>
 			    		</div>
 			    		<div class="form-group">
-					    	<label class="control-label col-sm-2" >Reply:</label>
+					    	<label class="control-label col-sm-2 left" >返信:</label>
 					    	<div class="col-sm-10"> 
 					    		@if($thankcards[0]['ReplyText'])
 					    			<div id="reply_message">
 							    		<textarea class="form-control" name="reply_message" rows="3" disabled>{{$thankcards[0]['ReplyText']}}</textarea> 
-							    		<a href="#" id="reply_edit"><i class="fa fa-1x fa-edit"></i> Edit</a>
+							    		<a href="#" id="reply_edit"><i class="fa fa-1x fa-edit"></i> 編集</a>
 							        </div>
 							        <div id="reply_message_edit">
 							        	<textarea class="form-control reply_text" name="reply_message" rows="3" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
 							        	<button type="submit" class="btn btn-default  reply"  
 						    		     >
-				            			    <i class="fa fa-reply" aria-hidden="true"></i> Reply
+				            			    <i class="fa fa-reply" aria-hidden="true"></i> 返信
 				            		 	</button>
 					            		 <button type="button" class="btn btn-default  reply"  
-							    		     id="btn_cancel">
-					            			    <i class="fa fa-remove" aria-hidden="true"></i> Cancel
+							    		     id="btn_cancel" style="width: 120px !important;">
+					            			    <i class="fa fa-remove" aria-hidden="true"></i> キャンセル
 					            		 </button>
 							        </div>
 						    	@else
 						    		<textarea class="form-control reply_text" name="reply_message" rows="3" name="reply_text">{{$thankcards[0]['ReplyText']}}</textarea>
 						    		 <button type="submit" class="btn btn-default  reply"  
 						    		     >
-				            			    <i class="fa fa-reply" aria-hidden="true"></i> Reply
+				            			    <i class="fa fa-reply" aria-hidden="true"></i> 返信
 				            		 </button> 
 						    	@endif
 					    	</div>

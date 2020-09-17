@@ -22,7 +22,7 @@
 				{{ csrf_field() }}   
 				<div class="form-group">
 					<label class="control-label col-sm-offset-9 col-sm-3 left" >
-						<strong>Date: {{date('d/m/Y')}} </strong>
+						<strong>日付: {{date('d/m/Y')}} </strong>
 					</label>
 				</div>
 				<div class="form-group">
@@ -34,43 +34,24 @@
 			    	<label class="control-label col-sm-10 left" >{{$sender['to_name']}}</label>	 
 			    </div>
 			    <div class="form-group">
-			    	<label class="control-label col-sm-2 left" >Title:</label>
+			    	<label class="control-label col-sm-2 left" >件名:</label>
 			    	<div class="col-sm-10">
 			    		<input type="text" name="title" class="form-control left"/>
 			    	</div> 
 			    </div> 
 			    <div class="form-group">
-			    	<label class="control-label col-sm-2" >Description:</label>
+			    	<label class="control-label col-sm-2 left" >内容:</label>
 			    	<div class="col-sm-10">
 			    		<textarea id="w3review" name="send_text" rows="7" cols="50" class="form-control col-sm-3 left"></textarea>	 
 			    	</div>
 			    </div> 
 			    <div class="form-group">
 			    	<div class="col-sm-offset-10 col-sm-2">
-			    		<button type="submit" class="btn btn-default" id="btnSend">Send</button>
+			    		<button type="submit" class="btn btn-default" id="btnSend">送信</button>
 			    	</div>
 			    </div>
 			</form>
 		</div>
 	</div> 
-</div>
-<!-- <script src="{{ asset('js/jquery/jquery-2.1.1.min.js') }}"></script> -->
-<!-- <script type="text/javascript">
-	$("#btnSend").click(function(){ 
-		var serializedData = $("#frmCreateCard").serialize();
-		var path =$("#url_path").val();
-		$.post(path, serializedData, function(response) {
-			var objData = jQuery.parseJSON(response);
-			if(objData.status=="success"){
-				$html ='<div class="alert alert-success">'
-                        +'<button type="button" class="close" data-dismiss="alert">&times;</button>'
-                        +'Your Thank Card is successfully sent!' 
-                        +'</div>';
-                   
-				$("#show_message").append($html);
-				window.open(window.location.origin+'/file/ThankYouCard.pdf', '_blank');
-			} 
-		});
-	});	
-</script> -->
+</div> 
 @endsection
