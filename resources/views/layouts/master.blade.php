@@ -119,7 +119,13 @@
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
                 "searching": false,
-                "bLengthChange": false
+                "bLengthChange": false,
+                "language": {
+                    "paginate": {
+                          "previous": "前へ",
+                          "next":"次"
+                        }
+                }
             }); 
             // set current date
             setCurrentDate();
