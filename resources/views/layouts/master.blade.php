@@ -105,7 +105,13 @@
                 "iDisplayLength": 5,
                 "searching": true, 
                 "order": [],
-                "ordering":true
+                "ordering":true,
+                "language": {
+                "paginate": {
+                      "previous": "前へ",
+                      "next":"次"
+                    }
+                }
             });
             $('.dataTables_length').addClass('bs-select');
             });
