@@ -20,8 +20,8 @@
 					value="{{Request::old('to_date')}}" >
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label" for="user_id">部署:</label>
-			      	<select name="department_id"  class="form-control"  id="department_id">	
+					<label class="control-label" for="user_id">From Department:</label>
+			      	<select name="from_department_id"  class="form-control"  id="department_id">	
 		      			@php
 				        	$department_id=Request::old('department_id');
 			            @endphp
@@ -35,11 +35,21 @@
 			        	@endfor 
 				    </select>
 				</div>
-				<div class="col-sm-3">
-					<label class="control-label" for="sub_department_id">課部署:</label> 
-			        <select name="sub_department_id"  class="form-control" id="sub_department_id">
-			        	<option value="%">Select Sub Department</option>
-			        </select>
+				<div class="col-sm-2">
+					<label class="control-label" for="user_id">To Department:</label>
+			      	<select name="to_department_id"  class="form-control"  id="department_id">	
+		      			@php
+				        	$department_id=Request::old('department_id');
+			            @endphp
+			        	<option value="%">All</option>
+			        	@for($i=0;$i<count($departments);$i++)
+				        	@if($departments[$i]['Id']==$department_id)
+				        		<option value="{{$departments[$i]['Id']}}" selected="selected">{{$departments[$i]['Name']}}</option>
+				        	@else
+				        		<option value="{{$departments[$i]['Id']}}">{{$departments[$i]['Name']}}</option>
+				        	@endif
+			        	@endfor 
+				    </select>
 				</div> 
 				<div class="col-sm-1">
 					<label class="control-label" for="sub_department_id">並び順:</label> 

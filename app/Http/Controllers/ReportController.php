@@ -165,14 +165,14 @@ class ReportController extends Controller
     	$request->flash();
   
         if($request->method()=="POST"){
-        	$data['dept_id'] =$request->department_id;
-        	$data['sub_dept_id']  =$request->sub_department_id;
+        	$data['from_dept_id'] =$request->from_department_id;
+        	$data['to_dept_id']  =$request->to_department_id;
 	        $data['from_date'] =$request->from_date;
         	$data['to_date']   = $request->to_date;
         	$data['order'] =$request->order; 
         }else{
-        	$data['dept_id'] ='%';
-        	$data['sub_dept_id']  = '%';
+        	$data['from_dept_id'] ='%';
+        	$data['to_dept_id']  = '%';
 	        $data['from_date'] =date('Y-m-d');
         	$data['to_date']   = date('Y-m-d');
         	$data['order'] ='desc';
