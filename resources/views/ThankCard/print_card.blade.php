@@ -48,7 +48,7 @@
 </head>
 <body> 
     <div class="row img_content"> 
-        <img src="{{ public_path('img/thankcard.jpg')}}" alt="BTS" style="width: 100%">
+        <img src="<?php echo $_SERVER['DOCUMENT_ROOT'] .'/img/thankcard.jpg';?>" alt="BTS" style="width: 100%">
     </div>
     <div class= "text_content" > 
         <p class="send_date"><i>Date:{{$send_date}}</i></p>
