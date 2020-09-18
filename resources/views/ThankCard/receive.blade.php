@@ -33,7 +33,7 @@
 					<div class="col-md-6" id="reply_content">
 						<div class="form-group">
 					    	<label class="control-label col-sm-offset-9 col-sm-3">
-					    		<strong>Date: {{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}</strong>
+					    		<strong>日付: {{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}</strong>
 					    	</label>
 					    	<input type="hidden" name="send_date" value="{{date('d-m-Y',strtotime($thankcards[0]['SendDate']))}}"/>
 						</div>
