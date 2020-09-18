@@ -163,10 +163,18 @@ class ThankCardController extends Controller
         $data['to']   = $request->to;
         $data['send_text'] =$request->send_text;  
 
-        $pdf = PDF::loadView('thankcard.print_card',$data);   
+        //$pdf = PDF::loadView('thankcard.print_card',$data);   
        // $pdf->save(storage_path().'_filename.pdf');
         $filename="thank_card_".date('Y-m-d H:i:s').'.pdf'; 
 
-        return $pdf->download($filename);
+        //return $pdf->download($filename);
+        $pdf = \App::make('dompdf.wrapper');
+        $html ='<div class="row img_content"> 
+                <img src="'.getcwd().'/img/thankcard.jpg" alt="BTS" style="width: 100%">
+                </div>';
+        
+         
+        $pdf->loadHTML($html);
+        return $pdf->stream($filename);
     } 
 }    
