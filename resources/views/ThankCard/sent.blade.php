@@ -6,7 +6,7 @@
         <li><a href="#">Sent</a></li>
 	</ol>
 	<div class="gird"> 
-	   <h4>{{App\Helper::EmployeeName()}}'s Sent List</h4>
+	   <h4>{{App\Helper::EmployeeName()}}の送信一覧</h4>
     </div>
 	<div id="card_content">
 		<div id="search">

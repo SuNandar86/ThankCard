@@ -6,7 +6,7 @@
         <li><a href="#">Inbox</a></li>
 	</ol>
 		<div class="gird"> 
-        <h4>{{App\Helper::EmployeeName()}}'s Inbox List</h4> 
+        <h4>{{App\Helper::EmployeeName()}}の受信トレイ</h4> 
 	</div>
     <div id="card_content">
     	<div id="search">
