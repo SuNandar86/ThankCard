@@ -119,6 +119,7 @@
                 "paging": true ,// false to disable pagination (or any other option)
                 "iDisplayLength": 5,
                 "searching": false,
+                "order": [],
                 "bLengthChange": false,
                 "language": {
                     "paginate": {

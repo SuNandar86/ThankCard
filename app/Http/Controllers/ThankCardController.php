@@ -163,16 +163,8 @@ class ThankCardController extends Controller
         $data['to']   = $request->to;
         $data['send_text'] =$request->send_text;  
 
-        $pdf = PDF::loadView('thankcard.print_card',$data); 
-        $pdf->getDomPDF()->setHttpContext(
-        stream_context_create([
-            'ssl' => [
-                'allow_self_signed'=> TRUE,
-                'verify_peer' => FALSE,
-                'verify_peer_name' => FALSE,
-            ]
-        ])
-        );
+        $pdf = PDF::loadView('thankcard.print_card',$data);   
+
         $filename="thank_card_".date('Y-m-d H:i:s').'.pdf'; 
 
         return $pdf->download($filename);
