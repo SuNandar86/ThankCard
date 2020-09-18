@@ -23,7 +23,7 @@
 					<label class="control-label" for="user_id">部署元:</label>
 			      	<select name="from_department_id"  class="form-control"  id="department_id">	
 		      			@php
-				        	$department_id=Request::old('department_id');
+				        	$department_id=Request::old('from_department_id');
 			            @endphp
 			        	<option value="%">All</option>
 			        	@for($i=0;$i<count($departments);$i++)
@@ -39,7 +39,7 @@
 					<label class="control-label" for="user_id">部署先:</label>
 			      	<select name="to_department_id"  class="form-control"  id="department_id">	
 		      			@php
-				        	$department_id=Request::old('department_id');
+				        	$department_id=Request::old('to_department_id');
 			            @endphp
 			        	<option value="%">All</option>
 			        	@for($i=0;$i<count($departments);$i++)
