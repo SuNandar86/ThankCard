@@ -7,7 +7,7 @@
         <li><a href="#">Compose</a></li>
 	</ol>
 	<div class="gird" style="margin-top:30px;"> 
-	   <h4>Create your Thank Card</h4> 
+	   <h4>感謝カード作成</h4> 
     </div>
     <div id="card_content">
     	<div id="search">
@@ -15,7 +15,7 @@
     			{{ csrf_field() }}
 	    		<div class="form-group"> 
 			    	<div class="col-sm-3"> 
-			    		<label class="control-label" for="user_id">Department:</label>
+			    		<label class="control-label" for="user_id">部署:</label>
 				      	<select name="department_id"  class="form-control"  required="required" id="department_id">	
 			      			@php
 					        	$department_id=Request::old('department_id');
@@ -31,20 +31,20 @@
 					    </select>
 					</div> 
 				    <div class="col-sm-3">     
-				        <label class="control-label" for="sub_department_id">Sub Department:</label>     
+				        <label class="control-label" for="sub_department_id">課部署:</label>     
 				        <select name="sub_department_id"  class="form-control" id="sub_department_id"  >
 				        	<option value="%">Select Sub Department</option>
 				        </select>
 				    </div>
 				    <div class="col-sm-3">
-				    	<label class="control-label" for="sub_department_id">Select Employee:</label>  
+				    	<label class="control-label" for="sub_department_id">社員選択:</label>  
 				    	<select name="employee_id"  class="form-control" id="employee_id">
 				        	<option value="%">All</option> 
 						</select>
 				    </div>
 				    <div class="col-sm-3">
 				    	<label>&nbsp;</label>
-						<button type="submit" class="btn btn-default btn-search" id="">Search</button>
+						<button type="submit" class="btn btn-default btn-search" id="">検索</button>
 				    </div>
 			    </div>
 			 </form> 
@@ -52,12 +52,12 @@
         <table id="dtThankCard" class="table table-striped table-bordered" style="width:100%">
 	        <thead>
 	            <tr>
-	            	<th>No</th>
-	                <th>Photo</th>
-	                <th>Name</th>
-	                <th>Department </th> 
-	                <th>Subdepartment</th>  
-	                <th>Action</th>
+	            	<th>番号</th>
+	                <th>写真</th>
+	                <th>氏名</th>
+	                <th>部署 </th> 
+	                <th>課部署</th>  
+	                <th>操作</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -78,12 +78,12 @@
 	        </tbody>
 	        <tfoot>
 	            <tr>
-	            	<th>No</th>
-	                <th>Photo</th>
-	                <th>Name</th>
-	                <th>Department </th> 
-	                <th>Subdepartment</th> 
-	                <th>Action</th>                
+	            	<th>番号</th>
+	                <th>写真</th>
+	                <th>氏名</th>
+	                <th>部署 </th> 
+	                <th>課部署</th>  
+	                <th>操作</th>                
 	            </tr>
 	        </tfoot>
     	</table>
