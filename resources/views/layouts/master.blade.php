@@ -50,7 +50,7 @@
                         <ul class="dropdown-menu pull-right"> 
                             <li>
                                 <a href="{{url('user/setting')}}" class="padding-10 padding-top-0 padding-bottom-0">
-                                    <i class="fa fa-cog"></i> Setting
+                                    <i class="fa fa-cog"></i> 設定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -58,7 +58,7 @@
                                 <a href="{{url('logout')}}"
                                    class="padding-10 padding-top-5 padding-bottom-5"
                                    data-action="userLogout"><i
-                                        class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                                        class="fa fa-sign-out fa-lg"></i> <strong>ログイン</strong></a>
                             </li>
                         </ul>
                     </li>

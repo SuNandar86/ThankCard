@@ -6,7 +6,7 @@
     </ol>
     <header class="gird">
         <span class="widget-icon"> <i class="fa fa-plus"></i> </span>
-       	<h2>User Setting</h2> 
+       	<h2>ユーザー設定</h2> 
     </header> 
     <div class="form-container"> 
     	<form class="form-horizontal " action="{{url('user/setting/update')}}" method="post" enctype="multipart/form-data" files=
@@ -23,7 +23,7 @@
             </div>
             @endif  
     		<div class="form-group">
-		       	<label class="control-label col-sm-3" for="photo">Photo:</label>
+		       	<label class="control-label col-sm-3" for="photo">写真:</label>
 		       	<div class="col-sm-9"> 
 		       		@if($employee->photo_name)
 		       			<img src="{{ URL::asset('upload/images') }}/{{$employee->id}}/{{$employee->photo_name}}" width="100" height="100" style="margin-bottom:15px;" /> 
@@ -37,26 +37,26 @@
 		     	</div>
 		    </div>
 		    <div class="form-group">
-			      <label class="control-label col-sm-3" for="email">User Name:</label>
+			      <label class="control-label col-sm-3" for="email">ユーザー名:</label>
 			      <div class="col-sm-9">
 			        <input type="text" class="form-control" id="email" placeholder="Enter User Name" name="user_name" value="{{Request::old('user_name')!=""?Request::old('user_name'):$user->name}}" required="required">
 			        <input type="hidden" value="{{$user->id}}" name="user_id"/>
 			      </div>
 			</div>
 			<div class="form-group">
-		      <label class="control-label col-sm-3" for="pwd">Password:</label>
+		      <label class="control-label col-sm-3" for="pwd">パスワード:</label>
 		      <div class="col-sm-9">          
 		        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password"  value="{{Request::old('password')!=""?Request::old('password'):$user->password}}"  required="required">
 			</div>
 			</div> 
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="employee_name">Employee Name:</label>
+		      <label class="control-label col-sm-3" for="employee_name">社員氏名 :</label>
 		      <div class="col-sm-9">
 		        <input type="text" class="form-control" id="employee_name" placeholder="Enter User Name" name="employee_name" value="{{Request::old('name')!=""?Request::old('name'):$employee->name}}" required="">
 		      </div>
 		    </div> 
 		    <div class="form-group">
-		    	<label class="control-label col-sm-3" for="user_id">Department:</label>
+		    	<label class="control-label col-sm-3" for="user_id">部署:</label>
 		    	<div class="col-sm-9"> 
 			      	<select name="department_id"  class="form-control"  required="required" id="department_id">	
 			      		@php
@@ -76,7 +76,7 @@
 				</div>
 		    </div>
 		    <div class="form-group">
-		      	<label class="control-label col-sm-3" for="sub_department_id">Sub Department:</label>
+		      	<label class="control-label col-sm-3" for="sub_department_id">課部署:</label>
 			    <div class="col-sm-9">          
 			        <select name="sub_department_id"  class="form-control" id="sub_department_id">
 			        	
@@ -84,7 +84,7 @@
 			    </div>
 		    </div> 
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="email">Email:</label>
+		      <label class="control-label col-sm-3" for="email">メール:</label>
 		      <div class="col-sm-9">
 		      		<div class="input-group">
 				    	<span class="input-group-addon"><i class="fa fa-md fa-envelope"></i></span>
@@ -93,7 +93,7 @@
 		      </div>
 		    </div>
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="phone">Phone:</label>
+		      <label class="control-label col-sm-3" for="phone">携帯電話:</label>
 		      <div class="col-sm-9">
 		      		<div class="input-group">
 				    	<span class="input-group-addon"><i class="fa fa-md fa-mobile"></i></span>
@@ -102,7 +102,7 @@
 		      </div>
 		    </div>
 		    <div class="form-group">
-		      <label class="control-label col-sm-3" for="address">Address:</label>
+		      <label class="control-label col-sm-3" for="address">住所:</label>
 		      <div class="col-sm-9">
 		      		<div class="input-group">
 				    	<span class="input-group-addon"><i class="fa fa-md fa-map-marker"></i></span>
@@ -112,7 +112,7 @@
 		    </div>     		
 	   		<div class="form-group">
 		      	<div class="col-sm-offset-10 col-sm-2"> 
-    		        <button type="submit" class="btn btn-default right">Update</button> 
+    		        <button type="submit" class="btn btn-default right">追加</button> 
 		        </div>
 	    	</div>
 	    </form>

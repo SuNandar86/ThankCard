@@ -20,7 +20,7 @@
 					value="{{Request::old('to_date')}}" >
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label" for="user_id">From Department:</label>
+					<label class="control-label" for="user_id">部署元:</label>
 			      	<select name="from_department_id"  class="form-control"  id="department_id">	
 		      			@php
 				        	$department_id=Request::old('department_id');
@@ -36,7 +36,7 @@
 				    </select>
 				</div>
 				<div class="col-sm-2">
-					<label class="control-label" for="user_id">To Department:</label>
+					<label class="control-label" for="user_id">部署先:</label>
 			      	<select name="to_department_id"  class="form-control"  id="department_id">	
 		      			@php
 				        	$department_id=Request::old('department_id');
@@ -74,8 +74,8 @@
         <thead>
             <tr>
                 <th>番号</th>
-                <th>From Department</th>
-                <th>To Department </th> 
+                <th>部署元</th>
+                <th>部署先 </th> 
                 <th>From</th> 
                 <th>To</th> 
                 <th>合計</th> 
@@ -95,12 +95,12 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>No</th>
-                <th>From Department</th>
-                <th>To Department </th> 
+                <th>番号</th>
+                <th>部署元</th>
+                <th>部署先 </th> 
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th>                
+                <th>合計</th>                
             </tr>
         </tfoot>
     </table>
