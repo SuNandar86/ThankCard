@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 	<ol class="breadcrumb"> 
-        <li><a href="#">Inbox</a></li>
+        <li><a href="{{url('home')}}">Inbox</a></li>
         <li><a href="#">Reply</a></li>
 	</ol>
 	<div id="receive_content">
