@@ -163,9 +163,17 @@ class ThankCardController extends Controller
         $data['to']   = $request->to;
         $data['send_text'] =$request->send_text;  
 
+
+        $path =public_path().'/img/thankcard.jpg';
+        $imagedata = file_get_contents($path);
+        $base64 = base64_encode($imagedata);
+
+        $data['image']=$base64;
+
         $pdf = PDF::loadView('thankcard.print_card',$data);   
        // $pdf->save(storage_path().'_filename.pdf');
         $filename="thank_card_".date('Y-m-d H:i:s').'.pdf'; 
+
 
         return $pdf->download($filename);
     } 
