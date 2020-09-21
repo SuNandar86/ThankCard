@@ -29,7 +29,7 @@
                 <th>Sub Department </th> 
                 <th>From</th> 
                 <th>To</th> 
-                <th>Total Score</th> 
+                <th>Point</th> 
             </tr>
         </thead>
         <tbody>

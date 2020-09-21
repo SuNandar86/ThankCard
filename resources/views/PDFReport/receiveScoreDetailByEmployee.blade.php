@@ -28,7 +28,7 @@
                 <th>Department</th>
                 <th>To</th> 
                 <th>Date</th>                
-                <th>Total Score</th> 
+                <th>Point</th> 
             </tr>
           </thead>
           <tbody>
