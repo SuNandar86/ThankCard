@@ -10,7 +10,7 @@
       margin-top:30px;
       padding:30px;
       padding-left: 60px;
-      height: 380px;
+      height: 310px;
       border:1px groove #DF4C2D;
       clear:both;
   }
