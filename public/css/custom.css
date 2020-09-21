@@ -275,7 +275,7 @@ img.rounded-circle {
 .img_banner{ 
     background: url('../img/banner.jpg') no-repeat center top; 
     background-size: cover; 
-    height:100vh;
+    height:140vh;
 }
 
 /* Media Query */
