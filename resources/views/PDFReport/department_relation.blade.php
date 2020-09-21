@@ -37,8 +37,8 @@
                     <td>{{$i+1}}</td>  
                     <td>{{ $thankcards[$i]['F_Dept_Name']}}</td>
                     <td>{{ $thankcards[$i]['T_Dept_Name']}}</td> 
-                    <td>{{ $thankcards[$i]['f_date']}}</td>
-                    <td>{{ $thankcards[$i]['t_date']}}</td>
+                    <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}}</td>
+                    <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
                     <td class="center">{{ $thankcards[$i]['CountResult']}}</td> 
                 </tr> 
             @endfor

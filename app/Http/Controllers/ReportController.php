@@ -69,7 +69,7 @@ class ReportController extends Controller
 
     	//get Employee list
         $data['emp_id']="%";
-        $data['from_emp_id']=Helper::EmployeeID();
+        $data['from_emp_id']='%';
         $data['dept_id']="%";
         $data['sub_dept_id']="%";
 
@@ -130,7 +130,7 @@ class ReportController extends Controller
 
     	//get Employee list
         $data['emp_id']="%";
-        $data['from_emp_id']=Helper::EmployeeID();
+        $data['from_emp_id']='%';
         $data['dept_id']="%";
         $data['sub_dept_id']="%";
 
