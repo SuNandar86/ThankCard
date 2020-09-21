@@ -46,7 +46,8 @@ class ThankCardController extends Controller
             $data['to_dept_id'] ='%';
             $data['to_s_dept_id'] ='%';
         }
-        //get sent thank card list
+        //get sent thank card list 
+
         $params['paramList']=json_encode($data); 
 
         $result=Helper::GET(\Config::get('setting.api_path').'/ThankCards/GetGiveCardList',$params);

@@ -27,8 +27,7 @@ class ReportController extends Controller
         //get sent thank card score list by department
         $params['paramList']=json_encode($data); 
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDept',
-        																				$params);
+        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDept',$params);
         $thankcards=$result['thankcard'][0];  
 
     	//get department and subdepartment list
@@ -60,8 +59,7 @@ class ReportController extends Controller
         //get sent thank card score list by employee
         $params['paramList']=json_encode($data); 
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByEmployee',
-        																				$params);
+        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByEmployee',$params);
         $thankcards=$result['thankcard'][0];   
 
     	//get department and subdepartment list
@@ -93,8 +91,7 @@ class ReportController extends Controller
     	$data['order'] ="DESC"; 
 
     	$params['paramList']=json_encode($data);
-    	$result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByEmployeeView',
-        																				$params); 
+    	$result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByEmployeeView',$params); 
     	$thankcards=$result['thankcard'][0];
           
     	return view('report.receive_score_detail_by_employee',compact('thankcards','data'));
@@ -181,8 +178,7 @@ class ReportController extends Controller
         //get thankcard list by department relation
         $params['paramList']=json_encode($data); 
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDeptRelation' 
-        																				,$params);
+        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDeptRelation',$params);
         $thankcards=$result['thankcard'][0];  
          
     	//get department and subdepartment list
@@ -204,8 +200,7 @@ class ReportController extends Controller
         //get sent thank card score list by department
         $params['paramList']=json_encode($data); 
 
-        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDept',
-                                                                                        $params);
+        $result=Helper::GET(\Config::get('setting.api_path').'/Report/GetThankCardTotalByDept',$params);
         $thankcards=$result['thankcard'][0];  
 
         $data =['thankcards' => $thankcards];
