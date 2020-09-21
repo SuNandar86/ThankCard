@@ -20,7 +20,10 @@
            </div> 
 		</div>
 		<div class="row">
-			<div class="center" style="padding-top:30px;font-size:16px;">
+			<div class="center" style="padding-top: 30px;
+									    font-size: 16px;
+									    font-weight: bold;
+									    font-style: italic;">
 				<p>Year Memories</p>
 				<p>We created our happy memories together</p>
 				<p>We spent most of our time together</p>

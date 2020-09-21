@@ -3,6 +3,7 @@
 <div class="container">
 	<ol class="breadcrumb"> 
         <li><a href="#">Report</a></li> 
+        <li><a href="{{url('reports/employee/thankcard/receive/score')}}">Total Receive Card By Employee</a></li>
         <li><a href="#">Receive Card Detail</a></li>
 	</ol>
 	<div id="card_content">

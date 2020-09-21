@@ -41,7 +41,7 @@
                 <td>{{ $thankcards[$i]['Sub_Dep_Name']}}</td>  
                 <td>{{date('d-m-Y',strtotime($thankcards[$i]['f_date']))}}</td>
                 <td>{{date('d-m-Y',strtotime($thankcards[$i]['t_date']))}}</td>
-                <td class="center">{{ $thankcards[$i]['CountResult']}}</td>  
+                <td class="right">{{ $thankcards[$i]['CountResult']}}</td>  
               </tr>
             @endfor
         </tbody>
