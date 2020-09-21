@@ -278,10 +278,38 @@ img.rounded-circle {
     height:100vh;
 }
 
-/* Responsive */
+/* Media Query */
+@media screen and (max-width: 1198px) {
+   #thankcard_img img{
+      height: 408px;
+   }
+    #reply_content{
+        height: 100%;
+    } 
+    .btn.print{
+        float: right !important;
+    }
+}
+@media screen and (max-width: 989px) {
+    fieldset{
+       width: auto;
+       margin-left: 3%;
+    } 
+    .btn-sv{
+        width: 100% !important;
+    }
+}
 @media screen and (max-width: 978px) {
    .menu-on-top aside#left-panel nav{
         margin-left: 0px !important;
         width: 100% !important;
+    } 
+} 
+@media screen and (max-width: 768px) {
+    #thankcard_content{
+        height: 100% !important;
+    }
+    #btnSend{
+        float: right;
     }
 }

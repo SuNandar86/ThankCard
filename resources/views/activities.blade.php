@@ -13,10 +13,10 @@
            	 	<img src="{{ asset('img/activity_1.jpg') }}" style="width: 100%">
            </div>
            <div class="col-md-4">
-           	 	<img src="{{ asset('img/party.jpg') }}" style="height: 202px;" />
+           	 	<img src="{{ asset('img/activity_2.png') }}" style="height: 202px;" />
            </div>
            <div class="col-md-4">
-           	 	<img src="{{ asset('img/congratulation.jpg') }}"/>
+           	 	<img src="{{ asset('img/activity_3.png') }}" style="width: 100%"/>
            </div> 
 		</div>
 		<div class="row">

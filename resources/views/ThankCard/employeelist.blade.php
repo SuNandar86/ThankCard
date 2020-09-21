@@ -2,9 +2,8 @@
 @section('content')
 <div class="container">
 	<ol class="breadcrumb">  
-        <li><a href="#">Employee</a></li>
-        <li><a href="#">ThankCard</a></li>
-        <li><a href="#">Compose</a></li>
+        <li><a href="#">Sent</a></li>
+        <li><a href="#">Employee</a></li> 
 	</ol>
 	<div class="gird" style="margin-top:30px;"> 
 	   <h4>感謝カード作成</h4> 

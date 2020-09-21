@@ -1,0 +1,9 @@
+ ThankCardServices
+getGiveCardList
+add new check for isActive in Employee
+
+EmployeeServices
+getEmployeeByUser
+add new photo select field
+
+update-database -Context WebApi.Models.ApplicationContext

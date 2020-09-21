@@ -44,7 +44,8 @@
 			       		@else
 			       			<img src="{{URL::asset('img/default.jpg')}}" class="rounded-circle"/>
 			       		@endif
-				       <input type="file" class="custom-file-input" id="customFile" name="photo"> 
+				       <input type="file" class="custom-file-input" id="customFile" name="photo">
+
 		    		   <label class="custom-file-label" for="customFile">Choose file</label>
 		    		   <input type="hidden" name="old_photo" value="{{$employee->photo_name}}"/>
 			     	</div>
@@ -147,11 +148,11 @@
 					</div>
     	    </fieldset>
 		    <div class="form-group">        
-		      	<div class="col-sm-offset-9 col-sm-2">
+		      	<div class="col-sm-offset-9 col-sm-3 col-md-2">
     		      	@if($employee->id)
-    		        <button type="submit" class="btn btn-default">追加</button>
+    		        <button type="submit" class="btn btn-default btn-sv">更新</button>
     		        @else
-    		        <button type="submit" class="btn btn-default">追加</button>
+    		        <button type="submit" class="btn btn-default btn-sv">追加</button>
     		        @endif
 		        </div>
 		    </div>

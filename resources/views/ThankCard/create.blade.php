@@ -1,9 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-	<ol class="breadcrumb">
-        <li><a href="{{url('home')}}">ThankCard</a></li>
-        <li><a href="#">Employee</a></li>
+	<ol class="breadcrumb"> 
+        <li><a href="#">Sent</a></li>
         <li><a href="#">Compose</a></li>
 	</ol>
 	<div id="card_content form-container" style="margin-top:60px;"> 

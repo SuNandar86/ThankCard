@@ -42,7 +42,7 @@
 		    <div class="form-group">        
 		        <div class="col-sm-offset-8 col-sm-2">
     		      	@if($department->id)
-    		        <button type="submit" class="btn btn-default">追加</button>
+    		        <button type="submit" class="btn btn-default">更新</button>
     		        @else
     		        <button type="submit" class="btn btn-default">追加</button>
     		        @endif
