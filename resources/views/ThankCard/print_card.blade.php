@@ -10,7 +10,7 @@
       margin-top:30px;
       padding:30px;
       padding-left: 60px;
-      height: 310px;
+      height: 410px;
       border:1px groove #DF4C2D;
       clear:both;
   }
@@ -48,7 +48,7 @@
 </head>
 <body> 
     <div class="row img_content"> 
-        <img src="data:image/png;base64,<?php echo $image;?>" alt="BTS" style="width: 100%">
+        <img src="data:image/png;base64,<?php echo $image;?>" alt="BTS" style="width: 100%;height: 502px;"  >
     </div>
     <div class= "text_content" > 
         <p class="send_date"><i>Date:{{$send_date}}</i></p>
