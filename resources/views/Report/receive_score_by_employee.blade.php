@@ -9,14 +9,14 @@
 		<form class="form-horizontal" action="{{url('reports/employee/thankcard/receive/score')}}" method="post" id="frmSearch">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<div class="col-sm-offset-9 col-sm-3">
-					<button type="submit" class="btn btn-default btn-search" id=""
-					 style="margin-left: 92px;">
-					  <i class="fa fa-eye" aria-hidden="true"></i> 検索
-				    </button> 
+				<div class="col-md-offset-9  col-sm-3">
 					<button type="button" class="btn btn-default btn-search right" id="btnPrint">
 						<i class="fa fa-download" aria-hidden="true"></i> プリント
 					</button>
+					<button type="submit" class="btn btn-default btn-search right" id=""
+					  >
+					  <i class="fa fa-eye" aria-hidden="true"></i> 検索
+				    </button> 
 				</div>
 			</div>
 			<div class="form-group"> 

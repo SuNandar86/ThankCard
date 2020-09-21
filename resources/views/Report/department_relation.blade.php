@@ -10,12 +10,12 @@
 			{{ csrf_field() }}
 			<div class="form-group"> 
 				<div class="col-sm-2">
-					<label for="email">From:</label>
+					<label for="from_date">From:</label>
 					<input type="date" id="from_date" name="from_date" class="form-control"
 					value="{{Request::old('from_date')}}">
 				</div>
 				<div class="col-sm-2">
-					<label for="email">To:</label>
+					<label for="to_date">To:</label>
 					<input type="date" id="to_date" name="to_date" class="form-control"
 					value="{{Request::old('to_date')}}" >
 				</div>

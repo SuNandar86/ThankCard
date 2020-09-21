@@ -26,11 +26,11 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>写真</th>
+                <th class="photo-hidden">写真</th>
                 <th>氏名</th>
-                <th>ユーザー名</th>
+                <th class="em-hidden">ユーザー名</th>
                 <th>部署 </th> 
-                <th>課部署</th> 
+                <th class="em-hidden">課部署</th> 
                 <th>住所</th> 
                 <th>作成日</th> 
                 @if(App\Helper::HasAccess('Update') ||  (App\Helper::HasAccess('Delete')))
@@ -41,7 +41,7 @@
         <tbody>
             @for($i=0;$i<count($employees);$i++)
                 <tr>
-                    <td>
+                    <td class="photo-hidden">
                         @if(isset($employees[$i]['PhotoName']) && $employees[$i]['PhotoName']!="")
                             <img src="{{ URL::asset('upload/images')}}/{{$employees[$i]['Emp_Id']}}/{{$employees[$i]['PhotoName']}}" width="100px" height="100px" />  
                         @else
@@ -49,10 +49,10 @@
                         @endif
                     </td> 
                     <td>{{ $employees[$i]['Emp_Name']}}</td>
-                    <td>{{ $employees[$i]['User_Name']}}</td>
+                    <td class="em-hidden">{{ $employees[$i]['User_Name']}}</td>
                     <td>{{ $employees[$i]['Dept_Name']}}</td>
                     <td>{{ $employees[$i]['Sub_Dept_Name']}}</td> 
-                    <td>{{ $employees[$i]['Address']}}</td> 
+                    <td class="em-hidden">{{ $employees[$i]['Address']}}</td> 
                     <td>{{date('d-m-Y',strtotime($employees[$i]['Created_Date']))}}</td>
                     @if(App\Helper::HasAccess('Update') ||  (App\Helper::HasAccess('Delete')))
                     <td>
@@ -73,11 +73,11 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>写真</th>
+                <th class="photo-hidden">写真</th>
                 <th>氏名</th>
-                <th>ユーザー名</th>
+                <th class="em-hidden">ユーザー名</th>
                 <th>部署 </th> 
-                <th>課部署</th> 
+                <th class="em-hidden">課部署</th> 
                 <th>住所</th> 
                 <th>作成日</th> 
                 @if(App\Helper::HasAccess('Update') ||  (App\Helper::HasAccess('Delete')))

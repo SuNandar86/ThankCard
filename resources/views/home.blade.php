@@ -10,9 +10,19 @@
 	</div>
     <div id="card_content">
     	<div id="search">
-    		<form class="form-horizontal" action="{{url('search')}}" method="post">
+    		<form class="form-horizontal" action="{{url('search')}}" method="post" id="frmSearch">
     			{{ csrf_field() }}
-	    		<div class="form-group"> 
+	    		<div class="form-group">
+	    			<div class="col-sm-2">
+						<label for="from_date">From:</label>
+						<input type="date" id="from_date" name="from_date" class="form-control"
+						value="{{Request::old('from_date')}}">
+					</div>
+					<div class="col-sm-2">
+						<label for="to_date">To:</label>
+						<input type="date" id="to_date" name="to_date" class="form-control"
+						value="{{Request::old('to_date')}}" >
+					</div> 
 					<div class="col-sm-2">
 						<label class="control-label" for="user_id">部署:</label>
 				      	<select name="department_id"  class="form-control"  id="department_id">	
@@ -41,16 +51,7 @@
 				        	<option value="%">All</option> 
 						</select>
 					</div>
-					<div class="col-sm-2">
-						<label for="email">From:</label>
-						<input type="date" id="from_date" name="from_date" class="form-control"
-						value="{{Request::old('from_date')}}">
-					</div>
-					<div class="col-sm-2">
-						<label for="email">To:</label>
-						<input type="date" id="to_date" name="to_date" class="form-control"
-						value="{{Request::old('to_date')}}" >
-					</div>
+					
 					<div class="col-sm-2">
 						<label>&nbsp;</label>
 						<button type="submit" class="btn btn-default btn-search">検索</button>

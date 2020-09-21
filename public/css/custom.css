@@ -30,11 +30,11 @@
     text-align: center;
 }
 .smart-style-2.menu-on-top aside#left-panel nav>ul>li>ul{
-    width: 243px;
+    width: 243px; 
 }
 .btn{
     margin-top:20px;
-    width: 79px !important;
+    width: 79px !important;    
 }
 .fa-mobile,
 .fa-map-marker{
@@ -44,7 +44,7 @@
     width: 90px !important;
 }
 .btn-search{
-    width: 75px !important;
+    width: 75px !important;    
 }
 fieldset {
     font-family: sans-serif;
@@ -148,6 +148,7 @@ header.gird>.widget-icon {
     margin-top: 22px;
     color:#fff;
     border:none;
+    margin-right: 5px;
 }
 /* ThankCard */ 
 #receive_content div.message{
@@ -289,6 +290,22 @@ img.rounded-circle {
     .btn.print{
         float: right !important;
     }
+    #frmSearch .col-sm-2,
+    #frmSearch .col-sm-1,
+    #frmSearch .col-sm-3{
+        width: 33.33%;
+    }
+    #frmSearch .col-md-offset-9{
+        margin-left: 66.66666667%;
+    }
+    #frmSearch .col-md-offset-9 .btn{
+        margin-left: 0px !important;
+    }
+}
+@media screen and (max-width: 991px) {
+     div.dataTables_filter{
+        margin-top:-37px;
+     }
 }
 @media screen and (max-width: 989px) {
     fieldset{
@@ -303,7 +320,14 @@ img.rounded-circle {
    .menu-on-top aside#left-panel nav{
         margin-left: 0px !important;
         width: 100% !important;
+        margin-top:15px !important;
     } 
+    .breadcrumb{
+        margin-top:15px;
+    }
+    .menu-on-top #mobile-profile-img a.userdropdown img{
+        height: 40px;
+    }
 } 
 @media screen and (max-width: 768px) {
     #thankcard_content{
@@ -311,5 +335,31 @@ img.rounded-circle {
     }
     #btnSend{
         float: right;
+    }
+    #frmSearch .col-sm-2,
+    #frmSearch .col-sm-1,
+    #frmSearch .col-sm-3{
+        width:100%;
+    } 
+    #frmSearch .col-sm-3 .btn{
+        float: right;
+        margin-right: 5px;
+    }   
+    .form-horizontal .form-group{
+        margin-left: 0px; 
+        margin-right: 0px; 
+    }
+    .em-hidden{
+        display: none;
+    }
+    #frmSearch .col-md-offset-9{
+        margin-left: 0px;
+        float: right;
+        width: 45% !important;
+    }
+}  
+@media screen and (max-width: 585px) {
+    .photo-hidden{
+        display: none;
     }
 }
