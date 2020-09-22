@@ -1,7 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>ThankCard Score By Department Relation</title>  
- <style type="text/css">
+ <title>ThankCard Score By Department Relation</title> 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>'; 
+
+ <style type="text/css"> 
+    body {
+      font-family: ipag;
+    }
    .left{
       float: left;
    }
@@ -20,6 +25,7 @@
   }
   .text_content p{
       color:#e83812;
+      
   }
   .text_content .send_date{
       float: right;
@@ -28,7 +34,7 @@
       font-size: 18px;
    }
   .text_content .line_text{
-      margin-top:15%; 
+      margin-top:15%;  
    }
   .text_content .line_text .left_content{
       width: 50%;
@@ -43,6 +49,7 @@
       border-bottom: 1px solid #de3612;
       margin-bottom: 20px;
   } 
+ 
  </style>
  
 </head>

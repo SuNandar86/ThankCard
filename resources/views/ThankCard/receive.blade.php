@@ -108,7 +108,7 @@
 	$("#btnPrint").click(function() {  
 		$("input").removeAttr('disabled');	
 		$("textarea").removeAttr('disabled');
-	    var form = $("#frmReply"); 
+	    var form = $("#frmReply");  
 	    var url = "<?php echo url('thankcard/print/card');?>";  
 	    $.ajax({
 	       type: "POST",
